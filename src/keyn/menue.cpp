@@ -69,6 +69,7 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "hard";
+                input_username(user0);
                 run = false;
             }
             break;
@@ -87,6 +88,7 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "normal";
+                input_username(user0);
                 pt++;
                 run = false;
             }
@@ -109,6 +111,7 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "easy";
+                input_username(user0);
                 run = false;
             }
             break;
@@ -153,4 +156,16 @@ void displaymenue(int pos, const char ***meparts, int part, smode *user0) {
         }
     }
         
+}
+
+void input_username(smode *user0) {
+
+    system("clear");
+
+    cout << "\x1b[5;35m" << "      Enter you username" << "\x1b[0m" << endl;
+    cout << "  ";
+    cout << "\x1b[4;31m\t" << "max 15 symbols" << "\x1b[0m" << endl;
+
+    cin >> user0->username;
+
 }

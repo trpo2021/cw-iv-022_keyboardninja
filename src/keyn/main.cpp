@@ -14,7 +14,15 @@ int main () {
 
     menue(user0);
 
-    cout << user0->mode << "\n" << user0->diff << "\n";
+    cout << user0->mode << "\n" << user0->diff << "\n" << user0->username << "\n";
+
+    sleep(2);
+    
+    if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "normal") == 0)
+        code_normal();
+    else if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "hard") == 0)
+        code_hard();
+
     
     return 0;
 }
