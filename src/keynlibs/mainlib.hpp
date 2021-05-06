@@ -44,8 +44,9 @@ int code_hard();
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
 //Массивы, в которых происходит сравнение, номер строки, до которой происходит сравнение
-void code_compare(char **cstrings, char ** userstrings, int j);
+int code_compare(char **cstrings, char ** userstrings, int i);
 //x - номер строки, y - номер символа
-void code_display(char **cstrings, int x, int y);
+void code_display(char **cstrings, int x, int y, int ncolor);
 
-int read_user_answer(char **userstrings, int uscount);
+int read_user_answer(char **cstrings, char **userstrings, int uscount);
+void modecycle(smode *user0);

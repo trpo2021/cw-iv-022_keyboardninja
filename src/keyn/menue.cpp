@@ -88,7 +88,7 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "normal";
-                input_username(user0);
+                // input_username(user0);
                 pt++;
                 run = false;
             }
@@ -111,7 +111,7 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "easy";
-                input_username(user0);
+                // input_username(user0);
                 run = false;
             }
             break;

@@ -19,9 +19,9 @@ int code_normal() {
     const char *md= "normal";
 
     int strnum = read_code(codestr, n, md);
-    code_display(codestr, strnum, 1);
-    read_user_answer(ustr, strnum);
-    code_compare(codestr, ustr, strnum);
+    code_display(codestr, strnum, 1, 0);
+    read_user_answer(codestr, ustr, strnum);
+    // code_compare(codestr, ustr, strnum);
 
     return 0;
 
@@ -43,8 +43,8 @@ int code_hard() {
     const char *md= "hard";
 
     int strnum = read_code(codestr, n, md);
-    read_user_answer(ustr, strnum);
-    code_compare(codestr, ustr, strnum);
+    read_user_answer(codestr, ustr, strnum);
+    // code_compare(codestr, ustr, strnum);
 
     return 0;
 }
