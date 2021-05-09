@@ -2,6 +2,8 @@
 
 int main () {
 
+    srand(time(NULL));
+
     system("clear");
     cout << "\x1b[36;26m" << "\tWelcome to the Keyboard Ninja" << "\x1b[0m\n";
     cout << "\x1b[32;26m" << "   Use 1, 2, 3 or 4 to navigate the menue" << "\x1b[0m\n";

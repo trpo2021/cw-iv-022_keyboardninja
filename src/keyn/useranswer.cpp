@@ -15,7 +15,7 @@ int read_user_answer(char **cstrings, char **userstrings, int uscount) {
 
     while (1) {
 
-        code_display(cstrings, uscount, 1, counter);
+        code_display(cstrings, uscount, 1, counter, counter);
 
         j = 0;
 

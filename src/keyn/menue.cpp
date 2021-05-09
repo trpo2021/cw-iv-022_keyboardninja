@@ -69,7 +69,7 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "hard";
-                input_username(user0);
+                // input_username(user0);
                 run = false;
             }
             break;

@@ -10,10 +10,25 @@ int read_code(char **cstrings, int num, const char *md) {
 
     int i = 0, c = 0;
 
-    char *temp  = (char*)malloc(MAXCODELENS*sizeof(char));
-    if (temp == NULL) {
-        in.close();
-        return -1;
+    char *temp = NULL;
+
+    if (strcmp(md, "normal") == 0) {
+
+        temp  = (char*)malloc(MAXCODELENS*sizeof(char));
+        if (temp == NULL) {
+            in.close();
+            return -1;
+        }
+
+    }
+    else if (strcmp(md, "hard") == 0) {
+        
+        temp  = (char*)malloc(MAXCODELENS*2*sizeof(char));
+        if (temp == NULL) {
+            in.close();
+            return -1;
+        }
+
     }
 
     while (in) {

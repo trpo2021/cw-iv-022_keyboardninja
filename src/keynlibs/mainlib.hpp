@@ -46,7 +46,7 @@ int read_code(char **cstrings, int num, const char *md);
 //Массивы, в которых происходит сравнение, номер строки, до которой происходит сравнение
 int code_compare(char **cstrings, char ** userstrings, int i);
 //x - номер строки, y - номер символа
-void code_display(char **cstrings, int x, int y, int ncolor);
+void code_display(char **cstrings, int x, int y, int ncolor, int snumber);
 
 int read_user_answer(char **cstrings, char **userstrings, int uscount);
 void modecycle(smode *user0);

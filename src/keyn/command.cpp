@@ -19,7 +19,7 @@ int code_normal() {
     const char *md= "normal";
 
     int strnum = read_code(codestr, n, md);
-    code_display(codestr, strnum, 1, 0);
+    //code_display(codestr, strnum, 1, 0); //В readuseranswer код выводится, по сути, здесь использование этой функции - излишне
     read_user_answer(codestr, ustr, strnum);
     // code_compare(codestr, ustr, strnum);
 
@@ -29,11 +29,13 @@ int code_normal() {
 
 int code_hard() {
 
-    char **codestr = (char**)malloc(MAXCODESTRINGS*sizeof(char*));
+    system("clear");
+
+    char **codestr = (char**)malloc(MAXCODESTRINGS*2*sizeof(char*));
     if (codestr == NULL)
         return -1;
     
-    char **ustr = (char**)malloc(MAXCODESTRINGS*sizeof(char*));
+    char **ustr = (char**)malloc(MAXCODESTRINGS*2*sizeof(char*));
     if (ustr == NULL)
         return -1;
 
@@ -43,6 +45,7 @@ int code_hard() {
     const char *md= "hard";
 
     int strnum = read_code(codestr, n, md);
+    //code_display(codestr, strnum, 1, 0);
     read_user_answer(codestr, ustr, strnum);
     // code_compare(codestr, ustr, strnum);
 
