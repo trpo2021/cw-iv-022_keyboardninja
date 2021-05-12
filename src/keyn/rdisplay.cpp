@@ -1,18 +1,9 @@
-//Чтение и вывод на экран информации
+//Вывод на экран информации различных режимов
 #include "../keynlibs/mainlib.hpp"
 
 void code_display(char **cstrings, int x, int y, int ncolor, int snumber) {
 
     system("clear");
-
-    // for (int i = 0; i < x && i ; i++) {
-    //     if (i < ncolor) {
-    //         cout << "\x1b[5;32m" << cstrings[i] <<"\x1b[0m";
-    //     }
-    //     else 
-    //         cout << cstrings[i];
-    //     cout << "\n";
-    // }
 
     if (snumber < x) {
         cout << "\x1b[5;37m" << "->" <<"\x1b[0m";

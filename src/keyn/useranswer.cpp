@@ -1,7 +1,7 @@
 //Считывание ответов пользователя
 #include "../keynlibs/mainlib.hpp"
 
-int read_user_answer(char **cstrings, char **userstrings, int uscount) {
+int read_user_answer_code(char **cstrings, char **userstrings, int uscount) {
 
     int counter = 0, j, flag;
 
@@ -41,6 +41,8 @@ int read_user_answer(char **cstrings, char **userstrings, int uscount) {
 
         counter++;
     }
+
+    free(temp);
 
     return 0;
 }

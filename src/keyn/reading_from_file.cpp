@@ -1,18 +1,22 @@
-//Функции для работы с таблицей рекордов
+//Функции для чтения из файла текстов для различных режимов
 #include "../keynlibs/mainlib.hpp"
 
 int read_code(char **cstrings, int num, const char *md) {
     ifstream in;
-    if (strcmp(md, "normal") == 0)
+    char mode;
+    if (strcmp(md, "normal") == 0) {
+        mode = 'n';
         in.open("Code_Medium.txt");
-    else
+    }
+    else {
+        mode = 'h';
         in.open("Code_Hard.txt");
-
+    }
     int i = 0, c = 0;
 
     char *temp = NULL;
 
-    if (strcmp(md, "normal") == 0) {
+    if (mode == 'n') {
 
         temp  = (char*)malloc(MAXCODELENS*sizeof(char));
         if (temp == NULL) {
@@ -21,7 +25,7 @@ int read_code(char **cstrings, int num, const char *md) {
         }
 
     }
-    else if (strcmp(md, "hard") == 0) {
+    else if (mode == 'h') {
         
         temp  = (char*)malloc(MAXCODELENS*2*sizeof(char));
         if (temp == NULL) {

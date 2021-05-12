@@ -48,5 +48,5 @@ int code_compare(char **cstrings, char ** userstrings, int i);
 //x - номер строки, y - номер символа
 void code_display(char **cstrings, int x, int y, int ncolor, int snumber);
 
-int read_user_answer(char **cstrings, char **userstrings, int uscount);
+int read_user_answer_code(char **cstrings, char **userstrings, int uscount);
 void modecycle(smode *user0);

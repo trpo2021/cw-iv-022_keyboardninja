@@ -69,7 +69,6 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "hard";
-                // input_username(user0);
                 run = false;
             }
             break;
@@ -88,7 +87,6 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "normal";
-                // input_username(user0);
                 pt++;
                 run = false;
             }
@@ -110,9 +108,14 @@ int menue(smode *user0) {
                 pt++;
             }
             else if (pt == 2) {
-                user0->diff = (char*) "easy";
-                // input_username(user0);
-                run = false;
+                if (strcmp(user0->mode, "code") == 0) {
+                    system("clear");
+                    cout << "\x1b[4;31m\t" << "Wrong difficulty level" << "\x1b[0m" << endl;
+                }
+                else {
+                    user0->diff = (char*) "easy";
+                    run = false;
+                }
             }
             break;
 

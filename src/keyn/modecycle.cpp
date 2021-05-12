@@ -1,3 +1,4 @@
+//Цикличный запуск выбранного режима
 #include "../keynlibs/mainlib.hpp"
 
 void modecycle (smode *user0) {
