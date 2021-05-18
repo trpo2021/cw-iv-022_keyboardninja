@@ -6,11 +6,11 @@ int read_code(char **cstrings, int num, const char *md) {
     char mode;
     if (strcmp(md, "normal") == 0) {
         mode = 'n';
-        in.open("Code_Medium.txt");
+        in.open("../inputtxt/code/Code_Medium.txt");
     }
     else {
         mode = 'h';
-        in.open("Code_Hard.txt");
+        in.open("../inputtxt/code/Code_Hard.txt");
     }
     int i = 0, c = 0;
 
