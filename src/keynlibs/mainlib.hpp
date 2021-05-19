@@ -18,6 +18,7 @@ typedef struct smode {
 
     const char *mode;
     const char *diff;
+    const char *lang;
     char *username;
 
 } SelectedMode;
@@ -43,8 +44,8 @@ int code_normal();
 int code_hard();
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
-//Массивы, в которых происходит сравнение, номер строки, до которой происходит сравнение
-int code_compare(char **cstrings, char ** userstrings, int i);
+
+int code_compare(char *cstring, char * userstring);
 //x - номер строки, y - номер символа
 void code_display(char **cstrings, int x, int y, int ncolor, int snumber);
 

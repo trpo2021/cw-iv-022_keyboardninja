@@ -4,14 +4,27 @@ int menue(smode *user0) {
 
     bool run = true;
     int select = 0;
-    char key;
+    char key = '3';
     int pt = 0;
 
     const char ***mparts = (const char***)malloc(4*sizeof(char**));
+    if (mparts == NULL) {
+        cout << "Memory allocation error\n";
+        return -1;
+    }
     for (int i = 0; i < 4; i++) {
         mparts[i] = (const char**)calloc(4,sizeof(char*));
+        if (*mparts == NULL) {
+            cout << "Memory allocation error\n";
+            return -1;
+        }
         for (int j = 0; j < 4; j++) {
             (*mparts)[i] = (char*)malloc(15*sizeof(char));
+        
+            if (**mparts == NULL) {
+                cout << "Memory allocation error\n";
+                return -1;
+            }
         }
     }
 
@@ -43,6 +56,12 @@ int menue(smode *user0) {
                 if (b == 2)
                     mparts[a][b] = "3. Hard";
             }
+            if (a == 3) {
+                if (b == 0)
+                    mparts[a][b] = "1. Ru";
+                if (b == 1)
+                    mparts[a][b] = "2. Eng";
+            }
         }
     }
 
@@ -69,7 +88,9 @@ int menue(smode *user0) {
             }
             else if (pt == 2) {
                 user0->diff = (char*) "hard";
-                run = false;
+                pt++;
+                if (strcmp(user0->mode, "code") == 0)
+                    run = false;
             }
             break;
 
@@ -88,6 +109,12 @@ int menue(smode *user0) {
             else if (pt == 2) {
                 user0->diff = (char*) "normal";
                 pt++;
+                if (strcmp(user0->mode, "code") == 0)
+                    run = false;
+            }
+            else if (pt == 3 && strcmp(user0->mode, "code") != 0) {
+                user0->lang = (char*) "eng";
+                // pt++;
                 run = false;
             }
             break;
@@ -108,14 +135,20 @@ int menue(smode *user0) {
                 pt++;
             }
             else if (pt == 2) {
-                if (strcmp(user0->mode, "code") == 0) {
+                if (strcmp(user0->mode, "code") == 0 || strcmp(user0->mode, "words") == 0) {
                     system("clear");
-                    cout << "\x1b[4;31m\t" << "Wrong difficulty level" << "\x1b[0m" << endl;
+                    cout << "\x1b[5;31m\n\n\t" << "Wrong difficulty level" << "\x1b[0m" << endl;
+                    sleep(1);
                 }
                 else {
                     user0->diff = (char*) "easy";
-                    run = false;
+                    pt++;
                 }
+            }
+            else if (pt == 3) {
+                user0->lang = "ru";
+                // pt++;
+                run = false;
             }
             break;
 
@@ -126,6 +159,8 @@ int menue(smode *user0) {
     }
 
     free(mparts);
+
+    modecycle(user0);
 
     return 0;
 }
@@ -147,16 +182,20 @@ void displaymenue(int pos, const char ***meparts, int part, smode *user0) {
         cout << "\t" << meparts[part][3] << endl;
     }
     else if (part == 2) {
-        if (strcmp(user0->mode, "words") == 0) {
+        if (strcmp(user0->mode, "sentences") == 0) {
             cout << "\t" << meparts[part][pos] << endl;
             cout << "\t" << meparts[part][1] << endl;
             cout << "\t" << meparts[part][2] << endl;
         }
-        else if (strcmp(user0->mode, "sentences") == 0 || strcmp(user0->mode, "code") == 0) {
+        else if (strcmp(user0->mode, "words") == 0 || strcmp(user0->mode, "code") == 0) {
             cout << "\x1b[8;35m" << "\t" << meparts[part][pos] << "\x1b[0m" << endl;
             cout << "\t" << meparts[part][1] << endl;
             cout << "\t" << meparts[part][2] << endl;
         }
+    }
+    else if (part == 3) {
+        cout << "\t" << meparts[part][pos] << endl;
+        cout << "\t" << meparts[part][1] << endl;
     }
         
 }

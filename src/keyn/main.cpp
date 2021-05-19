@@ -11,15 +11,16 @@ int main () {
 
     smode *user0 = (smode*)malloc(sizeof(smode));
     user0->mode = (const char*)malloc(10*sizeof(char));
+    user0->lang = (const char*)malloc(5*sizeof(char));
     user0->diff = (const char*)malloc(10*sizeof(char));
     user0->username = (char*)malloc(15*sizeof(char));
 
     menue(user0);
 
-    modecycle(user0);
-    
-    
+    printf("LANGUAGE : %s\n", user0->lang);
+    sleep(2);
 
+    // modecycle(user0);
     
     return 0;
 }

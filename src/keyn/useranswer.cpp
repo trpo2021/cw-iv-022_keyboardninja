@@ -25,13 +25,12 @@ int read_user_answer_code(char **cstrings, char **userstrings, int uscount) {
         userstrings[counter] = (char*)malloc(MAXCODELENS*sizeof(char));
         cin.getline(userstrings[counter], MAXCODELENS, '\n');
 
-            //Сравнение строк на ходу, если введённый символ не совпадает, то требуется ввести строку ещё раз
-            flag = code_compare(cstrings, userstrings, counter);
+            flag = code_compare(cstrings[counter], userstrings[counter]);
             while (flag != 0) {
             if (flag != 0) {
                 cout << "\x1b[5;31m\t" << "TRY AGAIN" << "\x1b[0m" << endl;
                 cin.getline(userstrings[counter], MAXCODELENS, '\n');
-                flag = code_compare(cstrings, userstrings, counter);
+                flag = code_compare(cstrings[counter], userstrings[counter]);
             }
             else {
                 j++;
