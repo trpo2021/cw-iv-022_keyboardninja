@@ -63,3 +63,36 @@ int read_code(char **cstrings, int num, const char *md) {
     return i - 1;
 
 }
+
+int read_usermode(char **cstrings) {
+
+    ifstream in;
+    in.open("../inputtxt/usermode/usermode.txt");
+
+    int i = 0;
+
+    char *temp = NULL;
+
+    temp  = (char*)malloc(MAXCODELENS*sizeof(char));
+    if (temp == NULL) {
+        in.close();
+        return -1;
+    }
+
+
+    while (in) {
+
+        cstrings[i] = (char*)malloc(MAXCODELENS*sizeof(char));
+
+        if (in.eof())
+            break;
+
+        in.getline(cstrings[i], MAXCODELENS);
+                i++;
+    }
+
+    in.close();
+
+    //Возвращает количество строк (понадобится для сравнения)
+    return i;
+}

@@ -122,7 +122,8 @@ int menue(smode *user0) {
         case '4' :
             if (pt == 1) {
                 user0->mode = (char*) "usermode";
-                pt++;
+                // pt++;
+                run = false;
             }
             break;
 

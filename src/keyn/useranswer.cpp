@@ -28,6 +28,7 @@ int read_user_answer_code(char **cstrings, char **userstrings, int uscount) {
             flag = code_compare(cstrings[counter], userstrings[counter]);
             while (flag != 0) {
             if (flag != 0) {
+                code_display(cstrings, uscount, 1, counter, counter);
                 cout << "\x1b[5;31m\t" << "TRY AGAIN" << "\x1b[0m" << endl;
                 cin.getline(userstrings[counter], MAXCODELENS, '\n');
                 flag = code_compare(cstrings[counter], userstrings[counter]);

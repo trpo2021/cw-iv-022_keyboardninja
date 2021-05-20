@@ -40,6 +40,11 @@ void read_sentences();
 void sentences_compare();
 void sentences_display();
 
+int umode();
+int findsize();
+int writefile();
+int read_usermode(char **cstrings);
+
 int code_normal();
 int code_hard();
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
