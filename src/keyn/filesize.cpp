@@ -7,13 +7,16 @@ int findsize() {
 
     int fsize = 0;
 
-    char *temp = (char *)malloc(MAXCODELENS*sizeof(char));
+    char *temp = (char *)malloc(MAXUSERLEN*sizeof(char));
 
-    while (input) {
-        input.getline(temp, MAXCODELENS);
+    while (!input.eof()) {
+
+        input.getline(temp, MAXUSERLEN);
 
         if (input.eof())
             break;
+
+        input.clear();     
 
         fsize++;
     }

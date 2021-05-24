@@ -1,7 +1,7 @@
 //Code Mode
 #include "../keynlibs/mainlib.hpp"
 
-int code_normal() {
+int code_normal(uint8_t lang) {
 
     system("clear");
 
@@ -9,17 +9,16 @@ int code_normal() {
     if (codestr == NULL)
         return -1;
     
-    char **ustr = (char**)malloc(MAXCODESTRINGS*sizeof(char*));
+    char **ustr = (char**)malloc(sizeof(char*));
     if (ustr == NULL)
         return -1;
 
-
     //Выбор одного из заготовленных заранее вариантов
-    int n = rand() % 10 + 1;
+    int n = rand() % CODENUM + 1;
     const char *md= "normal";
 
     int strnum = read_code(codestr, n, md);
-    read_user_answer_code(codestr, ustr, strnum);
+    readusansw_uscode(codestr, ustr, strnum, lang);
 
     free(codestr);
     free(ustr);
@@ -28,7 +27,7 @@ int code_normal() {
 
 }
 
-int code_hard() {
+int code_hard(uint8_t lang) {
 
     system("clear");
 
@@ -36,17 +35,16 @@ int code_hard() {
     if (codestr == NULL)
         return -1;
     
-    char **ustr = (char**)malloc(MAXCODESTRINGS*2*sizeof(char*));
+    char **ustr = (char**)malloc(sizeof(char*));
     if (ustr == NULL)
         return -1;
 
-
     //Выбор одного из заготовленных заранее вариантов
-    int n = rand() % 10 + 1;
+    int n = rand() % CODENUM + 1;
     const char *md= "hard";
 
     int strnum = read_code(codestr, n, md);
-    read_user_answer_code(codestr, ustr, strnum);
+    readusansw_uscode(codestr, ustr, strnum, lang);
 
     free(codestr);
     free(ustr);

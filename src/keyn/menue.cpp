@@ -210,5 +210,4 @@ void input_username(smode *user0) {
     cout << "\x1b[4;31m\t" << "max 15 symbols" << "\x1b[0m" << endl;
 
     cin >> user0->username;
-
 }

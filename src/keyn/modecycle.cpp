@@ -8,12 +8,10 @@ void modecycle (smode *user0) {
 
     input_username(user0);
 
-    sleep(2);
-
     if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "normal") == 0) {
         while (flag)
         {
-            code_normal();
+            code_normal(ENG);
             cout << "\n\t\x1b[5;36m" << "Do you want to continue ? (Y/N) : " <<"\x1b[0m";
             cin >> answ;
 
@@ -25,7 +23,7 @@ void modecycle (smode *user0) {
     else if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "hard") == 0) {
         while (flag)
         {
-            code_hard();
+            code_hard(ENG);
             cout << "\n\t\x1b[5;36m" << "Do you want to continue ? (Y/N) : " <<"\x1b[0m";
             cin >> answ;
 
@@ -37,7 +35,7 @@ void modecycle (smode *user0) {
     else if (strcmp(user0->mode, "usermode") == 0) {
         while (flag)
         {
-            umode();
+            umode(RU);
             cout << "\n\t\x1b[5;36m" << "Do you want to continue ? (Y/N) : " <<"\x1b[0m";
             cin >> answ;
 

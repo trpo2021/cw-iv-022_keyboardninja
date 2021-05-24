@@ -1,29 +1,26 @@
 #include "../keynlibs/mainlib.hpp"
 
-int umode() {
+int umode(uint8_t lang) {
 
     writefile();
 
     int fsize = findsize();
-
-    cout << "FILESIZE : " << fsize << "\n";
-
-    sleep(1);
-
     system("clear");
 
     char **rdstr = (char**)malloc(MAXCODESTRINGS*sizeof(char*));
     if (rdstr == NULL)
         return -1;
 
-    char **ustr = (char**)malloc(fsize*sizeof(char*));
+    char **ustr = (char**)malloc(sizeof(char*));
     if (ustr == NULL)
         return -1;
 
     read_usermode(rdstr);
 
-    read_user_answer_code(rdstr, ustr, fsize);
+    readusansw_uscode(rdstr, ustr, fsize, lang);
 
+    free(rdstr);
+    free(ustr);
 
     return 0;
 
