@@ -1,50 +1,89 @@
 //Цикличный запуск выбранного режима
 #include "../keynlibs/mainlib.hpp"
 
-void modecycle (smode *user0) {
+void modecycle(smode *user0)
+{
 
     bool flag = true;
     char answ[1] = {};
 
     input_username(user0);
 
-    if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "normal") == 0) {
+    if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "normal") == 0)
+    {
         while (flag)
         {
             code_normal(ENG);
-            cout << "\n\t\x1b[5;36m" << "Do you want to continue ? (Y/N) : " <<"\x1b[0m";
+            cout << "\n\t\x1b[5;36m"
+                 << "Do you want to continue ? (Y/N) : "
+                 << "\x1b[0m";
             cin >> answ;
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0) {
+            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            {
                 flag = false;
             }
         }
     }
-    else if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "hard") == 0) {
+    else if (strcmp(user0->mode, "code") == 0 && strcmp(user0->diff, "hard") == 0)
+    {
         while (flag)
         {
             code_hard(ENG);
-            cout << "\n\t\x1b[5;36m" << "Do you want to continue ? (Y/N) : " <<"\x1b[0m";
+            cout << "\n\t\x1b[5;36m"
+                 << "Do you want to continue ? (Y/N) : "
+                 << "\x1b[0m";
             cin >> answ;
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0) {
+            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            {
                 flag = false;
             }
         }
     }
-    else if (strcmp(user0->mode, "usermode") == 0) {
+    else if (strcmp(user0->mode, "usermode") == 0)
+    {
         while (flag)
         {
             umode(RU);
-            cout << "\n\t\x1b[5;36m" << "Do you want to continue ? (Y/N) : " <<"\x1b[0m";
+            cout << "\n\t\x1b[5;36m"
+                 << "Do you want to continue ? (Y/N) : "
+                 << "\x1b[0m";
             cin >> answ;
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0) {
+            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            {
+                flag = false;
+            }
+        }
+    }
+    else if (strcmp(user0->mode, "words") == 0)
+    {
+        ifstream in;
+        open_file(user0, &in);
+        if (strcmp(user0->lang, "eng") == 0)
+        {
+            wmode(&in, ENG);
+        }
+        else
+        {
+            wmode(&in, RU);
+        }
+
+        while (flag)
+        {
+            cout
+                << "\n\t\x1b[5;36m"
+                << "Do you want to continue ? (Y/N) : "
+                << "\x1b[0m";
+            cin >> answ;
+
+            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            {
                 flag = false;
             }
         }
     }
 
     menue(user0);
-
 }

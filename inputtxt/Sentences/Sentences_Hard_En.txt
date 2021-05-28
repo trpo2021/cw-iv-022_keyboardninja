@@ -1,5 +1,5 @@
 This was followed by the manufacture of silicon chips in the early 1960s that has ultimately led to incredibly complex circuits containing thousands of transistors integrated on a sliver of silicon so small you could lose it under your fingernail.
-Miniaturizing electronic circuits in this way is called microelectronics and it has come to influence the way we store, process and distribute information; to change the way we design and manufacture industrial goods; to improve the diagnosis and treatment of illnesses; 
+Miniaturizing electronic circuits in this way is called microelectronics and it has come to influence the way we store, process and distribute information; to change the way we design and manufacture industrial goods; to improve the diagnosis and treatment of illnesses;
 and it shapes the affairs of finance and business as well as a variety of social, educational and political activities. 
 Electronics is the art of using electrons in devices such as transistors and silicon chips to make electricity work for us. 
 There is no doubt it has had far-reaching effects on nearly all aspects of life, although its influence often remains unseen.
@@ -24,7 +24,7 @@ No longer it is necessary to process film to recover the image. In its place, at
 The CCD converts the image produced by the camera lens into a digital image that is stored in an on-board integrated circuit as a digital file. 
 In this state the image can be viewed at any time and then downloaded for image processing on a computer for manipulating and printing or for use on web pages
 We are surrounded by products in and round our homes that make use of electronics in one way or another. 
-Washing machines, security systems and toasters are “clever” because of the function of electronic circuits in them, not forgetting that hi-fi systems, radios, DVD (digital versatile disk) players, MP3 players and computers are so obviously “electronic” in what they do. 
+Washing machines, security systems and toasters are “clever” because of the function of electronic circuits in them, not forgetting that hi-fi systems, radios, DVD (digital versatile disk) players, MP3 players and computers are so obviously “electronic” in what they do
 One major advance familiar to all is the storage of recorded information brought about by the compact disk (CD) and the DVD.
 One of the most important developments in music technology has been the creation of the MP3 format for recording and playing music in digital form. 
 MP3 is a compression system for music that reduces the amount of memory space required to store a song without impairing the quality of the song′s sound.
