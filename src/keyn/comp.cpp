@@ -11,8 +11,6 @@ int scompare(char *cstring, char * userstring, uint8_t lang) {
     while (cstring[j] != '\0') {
         if (cstring[j] != userstring[j]) {
             if (lang == ENG) {
-                // if (j == 0)
-                //     cout << "  ";
                 cout << "\x1b[5;31m" << cstring[j] << "\x1b[0m";
             }
             else if (lang == RU ) {
@@ -24,11 +22,20 @@ int scompare(char *cstring, char * userstring, uint8_t lang) {
         }
         else {
             if (lang == ENG) {
-                // if (j == 0)
-                //     cout << "  ";
-                cout << "\x1b[5;32m" << cstring[j] << "\x1b[0m";
+                if (cstring[j + 1] == '\0') {
+                    if (userstring[j + 1] == '\0') {
+                        cout << "\x1b[5;32m" << cstring[j] << "\x1b[0m";
+                        break;
+                    }
+                    else {
+                        cout << "\x1b[5;31m" << userstring[j + 1] << "\x1b[0m";
+                        flag = 0;
+                    }
+                } 
+                else
+                    cout << "\x1b[5;32m" << cstring[j] << "\x1b[0m";
             }
-            else if (lang == RU && cstring[j + 1] == '\0') {
+            else if (lang == RU && cstring[j + 1] == '\0' && userstring[j + 1] == '\0') {
                 cout << "\x1b[5;32m" << "->" << cstring << "<-" << "\x1b[0m";
             }
         }

@@ -31,12 +31,11 @@ int writefile() {
     system("clear");
 
     system("touch ../inputtxt/usermode/usermode.txt");
-    system("./script.sh");
 
-    cout << "\n\tInput your text\n";
+    cout << "\n\t\tInput your text\n" << "\tPress i to switch to edit mode\n" << "Press Esc and enter <:quit!> to exit text editor or <:w> to save changes\n";
     sleep(1);
 
-    system("nano ../inputtxt/usermode/usermode.txt");
+    system("edit ../inputtxt/usermode/usermode.txt");
 
     return 0;
 }
