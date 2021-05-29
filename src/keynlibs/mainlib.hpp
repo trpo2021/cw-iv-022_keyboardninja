@@ -16,7 +16,7 @@ enum
     ENG = 1,
     RU = 2,
     CODENUM = 10,
-    MAXWORD = 41
+    MAXWORD = 128
 };
 
 typedef struct smode
@@ -33,19 +33,14 @@ void displaymenue(int pos, const char ***meparts, int part, smode *user0);
 int menue(smode *user0);
 void input_username(smode *user0);
 
-void wmode(ifstream *in, uint8_t lang);
-void open_file(smode *user, ifstream *in);
+void wmode_eng(ifstream *in, uint8_t lang);
+void wmode_ru(smode *user0);
+void open_file_eng(smode *user, ifstream *in);
 void bubble_sort(int *array, int n);
 int rand_num_15(int *arr);
 void read_ans(char *ans);
-int count_words(char *str, char token);
-
-void sentences_easy();
-void sentensec_normal();
-void sentences_hard();
-void read_sentences();
-void sentences_compare();
-void sentences_display();
+int write_words(char **all_str, int *num_str, const char *mode);
+void write_user_words(char **all_str, char *ans);
 
 int umode(uint8_t lang);
 int findsize();
@@ -61,5 +56,3 @@ int scompare(char *cstring, char *userstring, uint8_t lang);
 void display_sarr(char **cstrings, int x, int snumber);
 int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang);
 void modecycle(smode *user0);
-
-// int scompare_ru(char *cstring, char *userstring);
