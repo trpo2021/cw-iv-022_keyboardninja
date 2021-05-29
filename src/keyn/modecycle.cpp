@@ -57,33 +57,42 @@ void modecycle(smode *user0)
             }
         }
     }
-    // else if (strcmp(user0->mode, "words") == 0)
-    // {
-    //     ifstream in;
-    //     open_file(user0, &in);
-    //     if (strcmp(user0->lang, "eng") == 0)
-    //     {
-    //         wmode(&in, ENG);
-    //     }
-    //     else
-    //     {
-    //         wmode(&in, RU);
-    //     }
+    else if ((strcmp(user0->mode, "words") == 0) && (strcmp(user0->lang, "eng") == 0))
+    {
+        ifstream in;
+        open_file_eng(user0, &in);
+        wmode_eng(&in, ENG);
+        while (flag)
+        {
+            cout
+                << "\n\t\x1b[5;36m"
+                << "Do you want to continue ? (Y/N) : "
+                << "\x1b[0m";
+            cin >> answ;
 
-    //     while (flag)
-    //     {
-    //         cout
-    //             << "\n\t\x1b[5;36m"
-    //             << "Do you want to continue ? (Y/N) : "
-    //             << "\x1b[0m";
-    //         cin >> answ;
+            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            {
+                flag = false;
+            }
+        }
+    }
+    else if ((strcmp(user0->mode, "words") == 0) && (strcmp(user0->lang, "ru") == 0))
+    {
+        wmode_ru(user0);
+        while (flag)
+        {
+            cout
+                << "\n\t\x1b[5;36m"
+                << "Do you want to continue ? (Y/N) : "
+                << "\x1b[0m";
+            cin >> answ;
 
-    //         if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
-    //         {
-    //             flag = false;
-    //         }
-    //     }
-    // }
+            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            {
+                flag = false;
+            }
+        }
+    }
 
     menue(user0);
 }
