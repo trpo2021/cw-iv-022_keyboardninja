@@ -20,13 +20,15 @@ void modecycle(smode *user0)
             cin.getline(answ, 2);
             cin.clear();
 
-            while (1) {
+            while (1)
+            {
                 if (*answ == 'N' || *answ == 'n')
                 {
                     flag = false;
                     break;
                 }
-                else if (*answ == 'Y' || *answ == 'y') {
+                else if (*answ == 'Y' || *answ == 'y')
+                {
                     break;
                 }
             }
@@ -43,13 +45,15 @@ void modecycle(smode *user0)
             cin.getline(answ, 2);
             cin.clear();
 
-            while (1) {
+            while (1)
+            {
                 if (*answ == 'N' || *answ == 'n')
                 {
                     flag = false;
                     break;
                 }
-                else if (*answ == 'Y' || *answ == 'y') {
+                else if (*answ == 'Y' || *answ == 'y')
+                {
                     break;
                 }
             }
@@ -66,13 +70,15 @@ void modecycle(smode *user0)
             cin.getline(answ, 2);
             cin.clear();
 
-            while (1) {
+            while (1)
+            {
                 if (*answ == 'N' || *answ == 'n')
                 {
                     flag = false;
                     break;
                 }
-                else if (*answ == 'Y' || *answ == 'y') {
+                else if (*answ == 'Y' || *answ == 'y')
+                {
                     break;
                 }
             }
@@ -107,12 +113,50 @@ void modecycle(smode *user0)
                 << "\n\t\x1b[5;36m"
                 << "Do you want to continue ? (Y/N) : "
                 << "\x1b[0m";
-            cin.getline(answ, 1);
+            cin.getline(answ, 2);
             cin.clear();
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
+            while (1)
             {
-                flag = false;
+                if (*answ == 'N' || *answ == 'n')
+                {
+                    flag = false;
+                    break;
+                }
+                else if (*answ == 'Y' || *answ == 'y')
+                {
+                    break;
+                }
+            }
+        }
+    }
+    else if ((strcmp(user0->mode, "sentences") == 0) && (strcmp(user0->lang, "eng") == 0))
+    {
+        ifstream in;
+        open_file_eng(user0, &in);
+
+        while (flag)
+        {
+            smode_eng(&in, user0);
+            cout
+                << "\n\t\x1b[5;36m"
+                << "Do you want to continue ? (Y/N) : "
+                << "\x1b[0m";
+
+            cin.getline(answ, 2);
+            cin.clear();
+
+            while (1)
+            {
+                if (*answ == 'N' || *answ == 'n')
+                {
+                    flag = false;
+                    break;
+                }
+                else if (*answ == 'Y' || *answ == 'y')
+                {
+                    break;
+                }
             }
         }
     }

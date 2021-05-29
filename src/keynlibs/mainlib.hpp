@@ -16,7 +16,9 @@ enum
     ENG = 1,
     RU = 2,
     CODENUM = 10,
-    MAXWORD = 128
+    MAXWORD = 128,
+    COUNTSENT = 20,
+    MAXSENT = 200
 };
 
 typedef struct smode
@@ -43,6 +45,8 @@ int rand_num_15(int *arr);
 void read_ans(char *ans);
 int write_words(char **all_str, int *num_str, const char *mode);
 void write_user_words(char **all_str, char *ans);
+
+void smode_eng(ifstream *in, smode *user0);
 
 int umode(uint8_t lang, smode *user0);
 int findsize();
