@@ -32,8 +32,10 @@ typedef struct smode
 void displaymenue(int pos, const char ***meparts, int part, smode *user0);
 int menue(smode *user0);
 void input_username(smode *user0);
+void display_sarr(char **cstrings, int x, int snumber);
+void display_results(clock_t start, clock_t stop, int sleeps, int fails);
 
-void wmode_eng(ifstream *in, uint8_t lang);
+void wmode_eng(ifstream *in, uint8_t lang, smode *user0);
 void wmode_ru(smode *user0);
 void open_file_eng(smode *user, ifstream *in);
 void bubble_sort(int *array, int n);
@@ -42,17 +44,16 @@ void read_ans(char *ans);
 int write_words(char **all_str, int *num_str, const char *mode);
 void write_user_words(char **all_str, char *ans);
 
-int umode(uint8_t lang);
+int umode(uint8_t lang, smode *user0);
 int findsize();
 int writefile();
 int read_usermode(char **cstrings);
 
-int code_normal(uint8_t lang);
-int code_hard(uint8_t lang);
+int code_normal(uint8_t lang, smode *user0);
+int code_hard(uint8_t lang, smode *user0);
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
 
-int scompare(char *cstring, char *userstring, uint8_t lang);
-void display_sarr(char **cstrings, int x, int snumber);
-int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang);
+int scompare(char *cstring, char *userstring, uint8_t lang, int *fails);
+int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0);
 void modecycle(smode *user0);

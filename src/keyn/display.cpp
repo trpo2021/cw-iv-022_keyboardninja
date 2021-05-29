@@ -24,3 +24,8 @@ void display_sarr(char **cstrings, int x, int snumber) {
     }
 
 }
+
+void display_results(time_t start, time_t stop, int sleeps, int fails) {
+    cout << "\x1b[1;36m" << "Time : " <<"\x1b[0m" << difftime(stop, start) - sleeps << " seconds\n";
+    cout << "\x1b[1;31m" <<  "Fails : " <<"\x1b[0m" << fails << endl;
+}

@@ -1,7 +1,7 @@
 //Word Mode
 #include "../keynlibs/mainlib.hpp"
 
-void wmode_eng(ifstream *in, uint8_t lang)
+void wmode_eng(ifstream *in, uint8_t lang, smode *user0)
 {
     int *numbers = NULL;
     numbers = (int *)malloc(15 * sizeof(int));
@@ -22,7 +22,7 @@ void wmode_eng(ifstream *in, uint8_t lang)
             in->getline(str, MAXWORD, '\n');
         }
 
-        readusansw_uscode(&str, &ans, 1, lang);
+        readusansw_uscode(&str, &ans, 1, lang, user0);
 
         count++;
         if (count == 15)
@@ -127,7 +127,7 @@ void wmode_ru(smode *user0)
 
     //запись в двумерный массив
     write_words(arr_words, str_num, user0->mode);
-    readusansw_uscode(arr_words, &ans_word, 15, RU);
+    // readusansw_uscode(arr_words, &ans_word, 15, RU);
     //write_user_words(arr_words, ans_word);
     sleep(20);
 }

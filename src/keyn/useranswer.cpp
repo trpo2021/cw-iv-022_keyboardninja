@@ -1,9 +1,10 @@
 //Считывание ответов пользователя
 #include "../keynlibs/mainlib.hpp"
 
-int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang) {
+int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0) {
 
-    int counter = 0, j, flag, rsize;
+    int counter = 0, j, flag, rsize, sleepcount = 0, fails = 0;
+    time_t start, stop;
 
     if (lang == RU)
         rsize = MAXUSERLEN;
@@ -14,14 +15,13 @@ int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t 
         if (temp == NULL) {
             return -1;
         }
-    //Очистить последний символ буфера
-    getchar();
 
     *userstrings = (char*)malloc(rsize*sizeof(char));
     if (*userstrings == NULL) {
         return -1;
     }
 
+    start = time(NULL);
     while (1) {
 
         display_sarr(cstrings, uscount, counter);
@@ -31,16 +31,27 @@ int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t 
             break;
         
         cin.getline(*userstrings, rsize, '\n');
-        flag = scompare(cstrings[counter], *userstrings, lang);
+
+        if (strcmp(*userstrings, ":q!") == 0) {
+            system("clear");
+            menue(user0);
+        }
+
+        flag = scompare(cstrings[counter], *userstrings, lang, &fails);
+        sleepcount++;
 
         while (flag == 0) {
             if (flag == 0) {
-                // cout << "\x1b[5;31m\t" << "TRY AGAIN" << "\x1b[0m" << endl;
                 display_sarr(cstrings, uscount, counter);
                 cin.getline(*userstrings, rsize, '\n');
+                if (strcmp(*userstrings, ":q!") == 0) {
+                    system("clear");
+                    menue(user0);
+                }
                 //Очистка потока (В случае, если введённая строка больше ожидаемой)
                 cin.clear();
-                flag = scompare(cstrings[counter], *userstrings, lang);
+                flag = scompare(cstrings[counter], *userstrings, lang, &fails);
+                sleepcount++;
             }
             else {
                 j++;
@@ -49,6 +60,9 @@ int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t 
         }
         counter++;
     }
+    stop = time(NULL);
+    display_results(start, stop, sleepcount, fails);
+
     free(*userstrings);
     free(temp);
 

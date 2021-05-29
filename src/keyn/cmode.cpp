@@ -1,7 +1,7 @@
 //Code Mode
 #include "../keynlibs/mainlib.hpp"
 
-int code_normal(uint8_t lang) {
+int code_normal(uint8_t lang, smode *user0) {
 
     system("clear");
 
@@ -18,7 +18,8 @@ int code_normal(uint8_t lang) {
     const char *md= "normal";
 
     int strnum = read_code(codestr, n, md);
-    readusansw_uscode(codestr, ustr, strnum, lang);
+
+    readusansw_uscode(codestr, ustr, strnum, lang, user0);
 
     free(codestr);
     free(ustr);
@@ -27,7 +28,7 @@ int code_normal(uint8_t lang) {
 
 }
 
-int code_hard(uint8_t lang) {
+int code_hard(uint8_t lang, smode *user0) {
 
     system("clear");
 
@@ -44,7 +45,7 @@ int code_hard(uint8_t lang) {
     const char *md= "hard";
 
     int strnum = read_code(codestr, n, md);
-    readusansw_uscode(codestr, ustr, strnum, lang);
+    readusansw_uscode(codestr, ustr, strnum, lang, user0);
 
     free(codestr);
     free(ustr);

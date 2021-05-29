@@ -5,7 +5,7 @@ void modecycle(smode *user0)
 {
 
     bool flag = true;
-    char answ[1] = {};
+    char answ[2] = {};
 
     input_username(user0);
 
@@ -13,15 +13,22 @@ void modecycle(smode *user0)
     {
         while (flag)
         {
-            code_normal(ENG);
+            code_normal(ENG, user0);
             cout << "\n\t\x1b[5;36m"
                  << "Do you want to continue ? (Y/N) : "
                  << "\x1b[0m";
-            cin >> answ;
+            cin.getline(answ, 2);
+            cin.clear();
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
-            {
-                flag = false;
+            while (1) {
+                if (*answ == 'N' || *answ == 'n')
+                {
+                    flag = false;
+                    break;
+                }
+                else if (*answ == 'Y' || *answ == 'y') {
+                    break;
+                }
             }
         }
     }
@@ -29,15 +36,22 @@ void modecycle(smode *user0)
     {
         while (flag)
         {
-            code_hard(ENG);
+            code_hard(ENG, user0);
             cout << "\n\t\x1b[5;36m"
                  << "Do you want to continue ? (Y/N) : "
                  << "\x1b[0m";
-            cin >> answ;
+            cin.getline(answ, 2);
+            cin.clear();
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
-            {
-                flag = false;
+            while (1) {
+                if (*answ == 'N' || *answ == 'n')
+                {
+                    flag = false;
+                    break;
+                }
+                else if (*answ == 'Y' || *answ == 'y') {
+                    break;
+                }
             }
         }
     }
@@ -45,15 +59,22 @@ void modecycle(smode *user0)
     {
         while (flag)
         {
-            umode(RU);
+            umode(RU, user0);
             cout << "\n\t\x1b[5;36m"
                  << "Do you want to continue ? (Y/N) : "
                  << "\x1b[0m";
-            cin >> answ;
+            cin.getline(answ, 2);
+            cin.clear();
 
-            if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
-            {
-                flag = false;
+            while (1) {
+                if (*answ == 'N' || *answ == 'n')
+                {
+                    flag = false;
+                    break;
+                }
+                else if (*answ == 'Y' || *answ == 'y') {
+                    break;
+                }
             }
         }
     }
@@ -61,14 +82,15 @@ void modecycle(smode *user0)
     {
         ifstream in;
         open_file_eng(user0, &in);
-        wmode_eng(&in, ENG);
+        wmode_eng(&in, ENG, user0);
         while (flag)
         {
             cout
                 << "\n\t\x1b[5;36m"
                 << "Do you want to continue ? (Y/N) : "
                 << "\x1b[0m";
-            cin >> answ;
+            cin.getline(answ, 2);
+            cin.clear();
 
             if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
             {
@@ -85,7 +107,8 @@ void modecycle(smode *user0)
                 << "\n\t\x1b[5;36m"
                 << "Do you want to continue ? (Y/N) : "
                 << "\x1b[0m";
-            cin >> answ;
+            cin.getline(answ, 1);
+            cin.clear();
 
             if (strcmp(answ, "N") == 0 || strcmp(answ, "n") == 0)
             {

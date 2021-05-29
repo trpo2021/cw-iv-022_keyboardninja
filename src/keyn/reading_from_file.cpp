@@ -1,17 +1,14 @@
 //Функции для чтения из файла текстов для различных режимов
 #include "../keynlibs/mainlib.hpp"
 
-int read_code(char **cstrings, int num, const char *md)
-{
+int read_code(char **cstrings, int num, const char *md) {
     ifstream in;
     char mode;
-    if (strcmp(md, "normal") == 0)
-    {
+    if (strcmp(md, "normal") == 0) {
         mode = 'n';
         in.open("../inputtxt/code/Code_Medium.txt");
     }
-    else
-    {
+    else {
         mode = 'h';
         in.open("../inputtxt/code/Code_Hard.txt");
     }
@@ -19,36 +16,29 @@ int read_code(char **cstrings, int num, const char *md)
 
     char *temp = NULL;
 
-    if (mode == 'n')
-    {
-        temp = (char *)malloc(MAXCODELENS * sizeof(char));
-        if (temp == NULL)
-        {
+    if (mode == 'n') {
+        temp  = (char*)malloc(MAXCODELENS*sizeof(char));
+        if (temp == NULL) {
             in.close();
             return -1;
         }
     }
-    else if (mode == 'h')
-    {
-        temp = (char *)malloc(MAXCODELENS * 2 * sizeof(char));
-        if (temp == NULL)
-        {
+    else if (mode == 'h') {
+        temp  = (char*)malloc(MAXCODELENS*2*sizeof(char));
+        if (temp == NULL) {
             in.close();
             return -1;
         }
     }
 
-    while (in)
-    {
+    while (in) {
         in.getline(temp, MAXCODELENS);
         if (strcmp(temp, "###") == 0)
             c++;
 
-        if (c == num)
-        {
-            do
-            {
-                cstrings[i] = (char *)malloc(MAXCODELENS * sizeof(char));
+        if (c == num) {
+            do {
+                cstrings[i] = (char*)malloc(MAXCODELENS*sizeof(char));
 
                 if (i >= 1 && strcmp(cstrings[i - 1], "###") == 0)
                     break;
@@ -64,26 +54,24 @@ int read_code(char **cstrings, int num, const char *md)
     in.close();
     //Возвращает количество строк (понадобится для сравнения)
     return i - 1;
+
 }
 
-int read_usermode(char **cstrings)
-{
+int read_usermode(char **cstrings) {
 
     ifstream in;
     in.open("../inputtxt/usermode/usermode.txt");
 
-    if (!in)
-    {
+    if (!in) {
         cout << "File can't be opened\n";
         return -1;
     }
 
     int i = 0;
 
-    while (!in.eof())
-    {
+    while (!in.eof()) {
 
-        cstrings[i] = (char *)malloc(MAXUSERLEN * sizeof(char));
+        cstrings[i] = (char*)malloc(MAXUSERLEN*sizeof(char));
         in.getline(cstrings[i], MAXUSERLEN);
 
         if (in.eof())
