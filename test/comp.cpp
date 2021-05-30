@@ -25,6 +25,7 @@ int scompare(char *cstring, char * userstring, uint8_t lang, int *fails) {
                         break;
                     }
                     else {
+                        (*fails)++;
                         flag = 0;
                     }
                 } 

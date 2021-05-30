@@ -1,24 +1,32 @@
 //Code Mode
 #include "../keynlibs/mainlib.hpp"
 
-int code_normal(uint8_t lang, smode *user0) {
+int cmode(uint8_t lang, smode *user0) {
 
     system("clear");
 
-    char **codestr = (char**)malloc(MAXCODESTRINGS*sizeof(char*));
+    int size = 0;
+
+    if(strcmp(user0->diff, "normal") == 0) {
+        size = MAXCODESTRINGS;
+    }
+    else {
+        size = 2*MAXCODESTRINGS;
+    }
+
+    char **codestr = (char**)malloc(size*sizeof(char*));
     if (codestr == NULL)
         return -1;
-    
-    char **ustr = (char**)malloc(sizeof(char*));
-    if (ustr == NULL)
-        return -1;
 
+    char **ustr = (char**)malloc(sizeof(char*));
+    if (ustr == NULL) {
+        free(codestr);
+        return -1;
+    }
     //Выбор одного из заготовленных заранее вариантов
     int n = rand() % CODENUM + 1;
-    const char *md= "normal";
 
-    int strnum = read_code(codestr, n, md);
-
+    int strnum = read_code(codestr, n, user0->diff);
     readusansw_uscode(codestr, ustr, strnum, lang, user0);
 
     free(codestr);
@@ -26,29 +34,4 @@ int code_normal(uint8_t lang, smode *user0) {
 
     return 0;
 
-}
-
-int code_hard(uint8_t lang, smode *user0) {
-
-    system("clear");
-
-    char **codestr = (char**)malloc(MAXCODESTRINGS*2*sizeof(char*));
-    if (codestr == NULL)
-        return -1;
-    
-    char **ustr = (char**)malloc(sizeof(char*));
-    if (ustr == NULL)
-        return -1;
-
-    //Выбор одного из заготовленных заранее вариантов
-    int n = rand() % CODENUM + 1;
-    const char *md= "hard";
-
-    int strnum = read_code(codestr, n, md);
-    readusansw_uscode(codestr, ustr, strnum, lang, user0);
-
-    free(codestr);
-    free(ustr);
-
-    return 0;
 }

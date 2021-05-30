@@ -52,8 +52,7 @@ int findsize();
 int writefile();
 int read_usermode(char **cstrings);
 
-int code_normal(uint8_t lang, smode *user0);
-int code_hard(uint8_t lang, smode *user0);
+int cmode(uint8_t lang, smode *user0);
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
 
