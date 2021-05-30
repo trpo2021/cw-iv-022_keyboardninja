@@ -64,6 +64,7 @@ double count_percent_miss(int fails, int sim);
 double count_coefficient_miss(double persent_miss);
 double speed_print(int sym, int time);
 double count_score(smode *user0, int speed, double coefficient_miss);
+int rangs(double score);
 
 int slen(char *str);
 int lencount(char **str, int count);

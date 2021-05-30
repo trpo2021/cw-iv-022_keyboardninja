@@ -217,3 +217,574 @@ CTEST(scompare_test, fails_count5)
 
     ASSERT_EQUAL(1, fails);
 }
+
+CTEST(counting, persent_test_1)
+{
+
+    double rez = 0;
+
+    int sim = 100;
+    int fails = 1;
+
+    rez = count_percent_miss(fails, sim);
+
+    ASSERT_EQUAL(1, rez);
+}
+
+CTEST(counting, persent_test_2)
+{
+    double rez = 0;
+
+    int sim = 100;
+    int fails = 50;
+
+    rez = count_percent_miss(fails, sim);
+
+    ASSERT_EQUAL(50, rez);
+}
+
+CTEST(counting, persent_test_3)
+{
+    double rez = 0;
+
+    int sim = 100;
+    int fails = 100;
+
+    rez = count_percent_miss(fails, sim);
+
+    ASSERT_EQUAL(100, rez);
+}
+
+CTEST(counting, persent_test_4)
+{
+    double rez = 0;
+
+    int sim = 100;
+    int fails = 200;
+
+    rez = count_percent_miss(fails, sim);
+
+    ASSERT_EQUAL(-1, rez);
+}
+
+CTEST(counting, count_coefficient_miss_1)
+{
+    double rez = 0;
+
+    double persent = 50;
+
+    rez = count_coefficient_miss(persent);
+
+    ASSERT_EQUAL(0.5, rez);
+}
+
+CTEST(counting, count_coefficient_miss_2)
+{
+    double rez = 0;
+
+    double persent = 30;
+
+    rez = count_coefficient_miss(persent);
+
+    ASSERT_EQUAL(0.3, rez);
+}
+
+CTEST(counting, count_coefficient_miss_3)
+{
+    double rez = 0;
+
+    double persent = 110;
+
+    rez = count_coefficient_miss(persent);
+
+    ASSERT_EQUAL(-1, rez);
+}
+
+CTEST(counting, count_coefficient_miss_4)
+{
+    double rez = 0;
+
+    double persent = 1;
+
+    rez = count_coefficient_miss(persent);
+
+    ASSERT_EQUAL(0.01, rez);
+}
+
+CTEST(counting, speed_print_0)
+{
+    double rez = 0;
+
+    int time = 10;
+
+    int sym = 100;
+
+    rez = speed_print(sym, time);
+
+    ASSERT_EQUAL(10, rez);
+}
+
+CTEST(counting, speed_print_1)
+{
+    double rez = 0;
+
+    int time = 50;
+
+    int sym = 100;
+
+    rez = speed_print(sym, time);
+
+    ASSERT_EQUAL(2, rez);
+}
+
+CTEST(counting, speed_print_2)
+{
+    double rez = 0;
+
+    int time = 100;
+
+    int sym = 100;
+
+    rez = speed_print(sym, time);
+
+    ASSERT_EQUAL(1, rez);
+}
+
+CTEST(counting, count_score_3_0)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "words";
+    user0->diff = "normal";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 9 * 3.4, rez);
+}
+
+CTEST(counting, count_score_3_1)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "words";
+    user0->diff = "hard";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 9 * 3.7, rez);
+}
+
+CTEST(counting, count_score_3)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "sentences";
+    user0->diff = "hard";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 9 * 2.9, rez);
+}
+
+CTEST(counting, count_score_4)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "sentences";
+    user0->diff = "normal";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 9 * 2.7, rez);
+}
+
+CTEST(counting, count_score_5)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "code";
+    user0->diff = "normal";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 9 * 3, rez);
+}
+
+CTEST(counting, count_score_6)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "code";
+    user0->diff = "hard";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 9 * 3.4, rez);
+}
+
+CTEST(counting, count_score_6_2)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "words";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 2 * 3.4, rez);
+}
+
+CTEST(counting, count_score_6_3)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "words";
+    user0->diff = "hard";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 2 * 3.7, rez);
+}
+
+CTEST(counting, count_score_6_4)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "sentences";
+    user0->diff = "hard";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 2 * 2.9, rez);
+}
+
+CTEST(counting, count_score_6_5)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "sentences";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 2 * 2.7, rez);
+}
+
+CTEST(counting, count_score_6_6)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "code";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 2 * 3, rez);
+}
+
+CTEST(counting, count_score_6_7)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "code";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.3;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.7 * 2 * 3.4, rez);
+}
+
+///////////////////
+
+CTEST(counting, count_score_7)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "words";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.1;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.9 * 2 * 3.4, rez);
+}
+
+CTEST(counting, count_score_8)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "words";
+    user0->diff = "hard";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.2;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.8 * 2 * 3.7, rez);
+}
+
+CTEST(counting, count_score_9)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "sentences";
+    user0->diff = "hard";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.7;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.3 * 2 * 2.9, rez);
+}
+
+CTEST(counting, count_score_10)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "sentences";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.5;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.5 * 2 * 2.7, rez);
+}
+
+CTEST(counting, count_score_11)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "code";
+    user0->diff = "normal";
+
+    int speed = 9;
+
+    double coefficient_miss = 0.6;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.4 * 9 * 3, rez);
+}
+
+CTEST(counting, count_score_12)
+{
+    double rez = 0;
+
+    smode *user0 = (smode *)malloc(sizeof(smode));
+
+    user0->mode = "code";
+    user0->diff = "normal";
+
+    int speed = 2;
+
+    double coefficient_miss = 0.8;
+
+    rez = count_score(user0, speed, coefficient_miss);
+
+    free(user0);
+
+    ASSERT_EQUAL(0.2 * 2 * 3.4, rez);
+}
+
+CTEST(counting, rang_system_1)
+{
+    double rez = 0;
+
+    double score = 2;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(1, rez);
+}
+
+CTEST(counting, rang_system_2)
+{
+    double rez = 0;
+
+    double score = 7;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(2, rez);
+}
+
+CTEST(counting, rang_system_3)
+{
+    double rez = 0;
+
+    double score = 13;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(3, rez);
+}
+
+CTEST(counting, rang_system_4)
+{
+    double rez = 0;
+
+    double score = 20;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(4, rez);
+}
+
+CTEST(counting, rang_system_5)
+{
+    double rez = 0;
+
+    double score = 27;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(5, rez);
+}
+
+CTEST(counting, rang_system_6)
+{
+    double rez = 0;
+
+    double score = 33;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(6, rez);
+}
+
+CTEST(counting, rang_system_7)
+{
+    double rez = 0;
+
+    double score = 311;
+
+    rez = rangs(score);
+
+    ASSERT_EQUAL(6, rez);
+}
