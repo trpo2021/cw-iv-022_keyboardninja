@@ -18,7 +18,8 @@ enum
     CODENUM = 10,
     MAXWORD = 128,
     COUNTSENT = 20,
-    MAXSENT = 200
+    MAXSENT = 200,
+    COUNTWORDS = 15
 };
 
 typedef struct smode
@@ -42,7 +43,6 @@ void wmode_ru(smode *user0);
 void open_file_eng(smode *user, ifstream *in);
 void bubble_sort(int *array, int n);
 int rand_num_15(int *arr);
-void read_ans(char *ans);
 int write_words(char **all_str, int *num_str, const char *mode);
 void write_user_words(char **all_str, char *ans);
 

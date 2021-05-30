@@ -119,12 +119,6 @@ void bubble_sort(int *array, int n)
     }
 }
 
-void read_ans(char *ans)
-{
-    cout << "->";
-    fgets(ans, MAXWORD + 1, stdin);
-}
-
 void wmode_ru(smode *user0)
 {
     //system("clear");
@@ -150,7 +144,7 @@ void wmode_ru(smode *user0)
     char *ans_word = (char *)malloc(MAXWORD * sizeof(char));
     if (ans_word == NULL)
     {
-        for (int p = 0; p < 15; p++)
+        for (int p = 0; p < COUNTWORDS; p++)
         {
             free(arr_words[p]);
         }
@@ -158,10 +152,10 @@ void wmode_ru(smode *user0)
         return;
     }
 
-    int *str_num = (int *)malloc(15 * sizeof(int));
+    int *str_num = (int *)malloc(COUNTWORDS * sizeof(int));
     if (str_num == NULL)
     {
-        for (int p = 0; p < 15; p++)
+        for (int p = 0; p < COUNTWORDS; p++)
         {
             free(arr_words[p]);
         }
@@ -174,7 +168,7 @@ void wmode_ru(smode *user0)
 
     //запись в двумерный массив
     write_words(arr_words, str_num, user0->mode);
-    // readusansw_uscode(arr_words, &ans_word, 15, RU);
+    // readusansw_uscode(arr_words, &ans_word, COUNTWORDS, RU);
     //write_user_words(arr_words, ans_word);
     sleep(20);
 }
