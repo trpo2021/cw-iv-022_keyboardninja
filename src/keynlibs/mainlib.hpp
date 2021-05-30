@@ -9,7 +9,6 @@ using namespace std;
 
 enum
 {
-
     MAXCODELENS = 72,
     MAXCODESTRINGS = 30,
     MAXUSERLEN = 128,
@@ -58,7 +57,7 @@ int code_hard(uint8_t lang, smode *user0);
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
 
-int scompare(char *cstring, char *userstring, uint8_t lang, int *fails, int *count_sym, smode *user0);
+int scompare(char *cstring, char *userstring, uint8_t lang, int *fails);
 int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0);
 void modecycle(smode *user0);
 
@@ -66,3 +65,6 @@ double count_percent_miss(int fails, int sim);
 double count_coefficient_miss(double persent_miss);
 double speed_print(int sym, int time);
 double count_score(smode *user0, int speed, double coefficient_miss);
+
+int slen(char *str);
+int lencount(char **str, int count);

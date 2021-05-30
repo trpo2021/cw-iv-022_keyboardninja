@@ -22,7 +22,7 @@ void display_sarr(char **cstrings, int x, int snumber)
              << "\x1b[1;35m" << cstrings[snumber + 2] << "\x1b[0m\n";
     }
     else if (snumber < x - 1)
-        cout << "  ->next : "
+        cout << "  next -> "
              << "\x1b[1;35m" << cstrings[snumber + 1] << "\x1b[0m\n";
 
     if (snumber != x)
@@ -52,7 +52,7 @@ void display_results(time_t start, time_t stop, int sleeps, int fails, int sym, 
     cout << "\x1b[1;35m"
          << " persent of miss " << persent_miss << "%"
          << "\x1b[0m" << endl;
-    double coefficient_miss = count_coefficient_miss((int)persent_miss);
+    double coefficient_miss = count_coefficient_miss(persent_miss);
     cout << "\x1b[1;35m"
          << "coefficient of miss " << coefficient_miss << "\x1b[0m" << endl;
     double speed_of_print = speed_print(sym, time);
@@ -61,72 +61,6 @@ void display_results(time_t start, time_t stop, int sleeps, int fails, int sym, 
     double score = count_score(user0, speed_of_print, coefficient_miss);
     cout << "\x1b[1;35m"
          << "Your score : " << score << "\x1b[0m" << endl;
-}
-
-double count_percent_miss(int fails, int sim)
-{
-    double result;
-    result = ((double)fails / (double)sim) * 100;
-    return result;
-}
-
-double count_coefficient_miss(double persent_miss)
-{
-    return (persent_miss / 100);
-}
-
-double speed_print(int sym, int time)
-{
-    return (sym / time);
-}
-
-double count_score(smode *user0, int speed, double coefficient_miss)
-{
-    double r;
-    if (strcmp(user0->mode, "words") == 0)
-    {
-        if (strcmp(user0->diff, "hard") == 0)
-        {
-            r = 3.7;
-        }
-
-        if (strcmp(user0->diff, "normal") == 0)
-        {
-            r = 3.4;
-        }
-    }
-
-    if (strcmp(user0->mode, "sentences") == 0)
-    {
-        if (strcmp(user0->diff, "hard") == 0)
-        {
-            r = 2.9;
-        }
-
-        if (strcmp(user0->diff, "normal") == 0)
-        {
-            r = 2.7;
-        }
-    }
-
-    if (strcmp(user0->mode, "code") == 0)
-    {
-        if (strcmp(user0->diff, "hard") == 0)
-        {
-            r = 3.4;
-        }
-
-        if (strcmp(user0->diff, "normal") == 0)
-        {
-            r = 3;
-        }
-    }
-
-    if (strcmp(user0->mode, "usermode") == 0)
-    {
-        r = 2.4;
-    }
-
-    double score = (double)speed * r * (1 - coefficient_miss);
-    return score;
+    cout << "\tPress any key to skip...\n";
+    getchar();
 }

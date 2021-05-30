@@ -134,15 +134,14 @@ int menue(smode *user0) {
                 pt++;
             }
             else if (pt == 2) {
-                if (strcmp(user0->mode, "code") == 0 || strcmp(user0->mode, "words") == 0) {
                     system("clear");
                     cout << "\x1b[5;31m\n\n\t" << "Wrong difficulty level" << "\x1b[0m" << endl;
                     sleep(1);
-                }
-                else {
-                    user0->diff = (char*) "easy";
-                    pt++;
-                }
+                // }
+                // else {
+                //     user0->diff = (char*) "easy";
+                //     pt++;
+                // }
             }
             break;
 
@@ -179,16 +178,9 @@ void displaymenue(int pos, const char ***meparts, int part, smode *user0) {
         cout << "\t" << meparts[part][3] << endl;
     }
     else if (part == 2) {
-        if (strcmp(user0->mode, "sentences") == 0) {
-            cout << "\t" << meparts[part][pos] << endl;
-            cout << "\t" << meparts[part][1] << endl;
-            cout << "\t" << meparts[part][2] << endl;
-        }
-        else if (strcmp(user0->mode, "words") == 0 || strcmp(user0->mode, "code") == 0) {
             cout << "\x1b[8;35m" << "\t" << meparts[part][pos] << "\x1b[0m" << endl;
             cout << "\t" << meparts[part][1] << endl;
             cout << "\t" << meparts[part][2] << endl;
-        }
     }
     else if (part == 3) {
         cout << "\t" << "\x1b[8;35m" << meparts[part][pos] << "\x1b[0m" << endl;
