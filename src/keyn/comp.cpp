@@ -31,6 +31,7 @@ int scompare(char *cstring, char * userstring, uint8_t lang, int *fails) {
                     }
                     else {
                         cout << "\x1b[5;31m" << userstring[j + 1] << "\x1b[0m";
+                        (*fails)++;
                         flag = 0;
                     }
                 } 

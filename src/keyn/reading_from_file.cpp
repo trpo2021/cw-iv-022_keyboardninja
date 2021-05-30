@@ -82,7 +82,7 @@ int read_usermode(char **cstrings) {
     }
 
     in.close();
-    return i;
+    return i + 1;
 }
 
 void open_file_eng(smode *user, ifstream *in)

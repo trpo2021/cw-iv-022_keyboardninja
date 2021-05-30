@@ -1,4 +1,3 @@
-//Сравнение полученных от пользователя данных с исходником
 #include "../src/keynlibs/mainlib.hpp"
 
 int scompare(char *cstring, char * userstring, uint8_t lang, int *fails) {
@@ -25,6 +24,7 @@ int scompare(char *cstring, char * userstring, uint8_t lang, int *fails) {
                         break;
                     }
                     else {
+                        (*fails)++;
                         flag = 0;
                     }
                 } 
