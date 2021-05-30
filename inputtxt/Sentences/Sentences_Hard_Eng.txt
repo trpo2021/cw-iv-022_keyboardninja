@@ -11,8 +11,7 @@ The so-called digital revolution has transformed the capture and processing of s
 In its place, at the focal plane of the camera lens is an electronic sensor called a charge-coupled device (CCD). 
 The CCD converts the image produced by the camera lens into a digital image that is stored in an on-board integrated circuit as a digital file.
 In this state the image can be viewed at any time and then downloaded for image processing on a computer for manipulating and printing or for use on web pages.
-This lets you download a song in minutes rather than hours, and store hundreds of songs on your computer` hard disk without taking up that much space.
-Cameras that capture images on a film will be around for a long time yet, but many photographers are finding digital cameras more exciting and convenient to use. 
+This lets you download a song in minutes rather than hours, and store hundreds of songs on your computer` hard disk without taking up that much space. 
 The so-called digital revolution has transformed the capture and processing of still and moving pictures. 
 The CCD converts the image produced by the camera lens into a digital image that is stored in an on-board integrated circuit as a digital file. 
 In this state the image can be viewed at any time and then downloaded for image processing on a computer for manipulating and printing or for use on web pages
@@ -22,3 +21,8 @@ MP3 is a compression system for music that reduces the amount of memory space re
 The aim of this format is to compress a CD-quality song by a factor of 10 to 14 without noticeably affecting the CD-quality sound. 
 The more effective is the technology, the quicker is the development of this country.
 The quicker we joint our efforts in protecting the environment, the quicker the ecological problems are solved.
+A broad range of industrial and consumer products use computers as control systems.
+Simple special-purpose devices like microwave ovens and remote controls are included,
+as are factory devices like industrial robots and computer-aided design, as well as general-purpose
+devices like personal computers and mobile devices like smartphones.
+Computers power the Internet, which links hundreds of millions of other computers and users.
