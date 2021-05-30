@@ -3,33 +3,80 @@
 
 void wmode_eng(ifstream *in, uint8_t lang, smode *user0)
 {
-    int *numbers = NULL;
-    numbers = (int *)malloc(15 * sizeof(int));
-    rand_num_15(numbers); // на этом моменте есть отсотритованный массив из 15 элементов.
+    //system("clear");
+    //выделение памяти под массив слов и строку для ответов, и для массива чисел.
+    char **arr_words = (char **)malloc(15 * sizeof(char *));
+    if (arr_words == NULL)
+        return;
 
-    char *str = NULL;
-    str = (char *)malloc(MAXWORD * sizeof(char));
-
-    char *ans = NULL;
-    ans = (char *)malloc(MAXWORD * sizeof(char));
-
-    int count = 0, i = 0;
-    while (1)
+    for (int i = 0; i < 15; i++)
     {
-        while (i != numbers[count])
+        arr_words[i] = (char *)malloc(MAXWORD * sizeof(char));
+        if (arr_words[i] == NULL)
         {
-            i++;
-            in->getline(str, MAXWORD, '\n');
-        }
-
-        readusansw_uscode(&str, &ans, 1, lang, user0);
-
-        count++;
-        if (count == 15)
-        {
-            break;
+            for (int p = 0; p < i; p++)
+            {
+                free(arr_words[p]);
+            }
+            free(arr_words);
+            return;
         }
     }
+
+    char *ans_word = (char *)malloc(MAXWORD * sizeof(char));
+    if (ans_word == NULL)
+    {
+        for (int p = 0; p < 15; p++)
+        {
+            free(arr_words[p]);
+        }
+        free(arr_words);
+        return;
+    }
+
+    int *str_num = (int *)malloc(15 * sizeof(int));
+    if (str_num == NULL)
+    {
+        for (int p = 0; p < 15; p++)
+        {
+            free(arr_words[p]);
+        }
+        free(arr_words);
+        free(ans_word);
+        return;
+    }
+
+    char *temp = (char *)malloc(MAXWORD * sizeof(char));
+    if (temp == NULL)
+    {
+        for (int p = 0; p < 15; p++)
+        {
+            free(arr_words[p]);
+        }
+        free(arr_words);
+        free(ans_word);
+        return;
+    }
+    //рандомное заполнение массива чисел. причем числа = номер строки в файле
+    rand_num_15(str_num);
+
+    //запись в двумерный массив
+    int i = 0, count = 0;
+    while (i < 15)
+    {
+        if (str_num[i] != count)
+        {
+            in->getline(temp, MAXWORD, '\n');
+        }
+        else
+        {
+            in->getline(arr_words[i], MAXWORD, '\n');
+            i++;
+        }
+        count++;
+    }
+
+    readusansw_uscode(arr_words, &ans_word, 15, ENG, user0);
 }
 
 int rand_num_15(int *arr)
