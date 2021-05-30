@@ -35,7 +35,7 @@ void displaymenue(int pos, const char ***meparts, int part, smode *user0);
 int menue(smode *user0);
 void input_username(smode *user0);
 void display_sarr(char **cstrings, int x, int snumber);
-void display_results(clock_t start, clock_t stop, int sleeps, int fails);
+void display_results(time_t start, time_t stop, int sleeps, int fails, int sym, smode *user0);
 
 void wmode_eng(ifstream *in, uint8_t lang, smode *user0);
 void wmode_ru(smode *user0);
@@ -58,6 +58,11 @@ int code_hard(uint8_t lang, smode *user0);
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
 
-int scompare(char *cstring, char *userstring, uint8_t lang, int *fails);
+int scompare(char *cstring, char *userstring, uint8_t lang, int *fails, int *count_sym, smode *user0);
 int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0);
 void modecycle(smode *user0);
+
+double count_percent_miss(int fails, int sim);
+double count_coefficient_miss(double persent_miss);
+double speed_print(int sym, int time);
+double count_score(smode *user0, int speed, double coefficient_miss);
