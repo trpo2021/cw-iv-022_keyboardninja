@@ -100,7 +100,7 @@ int menue(smode *user0) {
                 cout << "\n\t\x1b[5;36m" << "Check our repository for more info : " <<"\x1b[0m\n\n";
                 cout << "https://github.com/trpo2021/cw-iv-022_keyboardninja";
                 cout << "\n\n\t\x1b[5;32m" << "Follow the link (Сtrl + Сlick)" <<"\x1b[0m\n";
-                sleep(10);
+                sleep(5);
             }
             else if (pt == 1) {
                 user0->mode = (char*) "sentences";
@@ -114,7 +114,6 @@ int menue(smode *user0) {
             }
             else if (pt == 3 && strcmp(user0->mode, "code") != 0) {
                 user0->lang = (char*) "eng";
-                // pt++;
                 run = false;
             }
             break;
@@ -122,7 +121,6 @@ int menue(smode *user0) {
         case '4' :
             if (pt == 1) {
                 user0->mode = (char*) "usermode";
-                // pt++;
                 run = false;
             }
             break;
@@ -136,20 +134,14 @@ int menue(smode *user0) {
                 pt++;
             }
             else if (pt == 2) {
-                if (strcmp(user0->mode, "code") == 0 || strcmp(user0->mode, "words") == 0) {
                     system("clear");
                     cout << "\x1b[5;31m\n\n\t" << "Wrong difficulty level" << "\x1b[0m" << endl;
                     sleep(1);
-                }
-                else {
-                    user0->diff = (char*) "easy";
-                    pt++;
-                }
-            }
-            else if (pt == 3) {
-                user0->lang = "ru";
-                // pt++;
-                run = false;
+                // }
+                // else {
+                //     user0->diff = (char*) "easy";
+                //     pt++;
+                // }
             }
             break;
 
@@ -159,6 +151,9 @@ int menue(smode *user0) {
 
     }
 
+    for (int i = 0; i < 4; i++) {
+        free((mparts)[i]);
+    }
     free(mparts);
 
     modecycle(user0);
@@ -183,19 +178,12 @@ void displaymenue(int pos, const char ***meparts, int part, smode *user0) {
         cout << "\t" << meparts[part][3] << endl;
     }
     else if (part == 2) {
-        if (strcmp(user0->mode, "sentences") == 0) {
-            cout << "\t" << meparts[part][pos] << endl;
-            cout << "\t" << meparts[part][1] << endl;
-            cout << "\t" << meparts[part][2] << endl;
-        }
-        else if (strcmp(user0->mode, "words") == 0 || strcmp(user0->mode, "code") == 0) {
             cout << "\x1b[8;35m" << "\t" << meparts[part][pos] << "\x1b[0m" << endl;
             cout << "\t" << meparts[part][1] << endl;
             cout << "\t" << meparts[part][2] << endl;
-        }
     }
     else if (part == 3) {
-        cout << "\t" << meparts[part][pos] << endl;
+        cout << "\t" << "\x1b[8;35m" << meparts[part][pos] << "\x1b[0m" << endl;
         cout << "\t" << meparts[part][1] << endl;
     }
         
@@ -209,6 +197,7 @@ void input_username(smode *user0) {
     cout << "  ";
     cout << "\x1b[4;31m\t" << "max 15 symbols" << "\x1b[0m" << endl;
 
-    cin >> user0->username;
-
+    getchar();
+    cin.getline(user0->username, 15);
+    cin.clear();
 }

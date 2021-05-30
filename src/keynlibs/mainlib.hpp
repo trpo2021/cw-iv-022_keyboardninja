@@ -7,14 +7,22 @@
 
 using namespace std;
 
-enum {
-
+enum
+{
     MAXCODELENS = 72,
-    MAXCODESTRINGS = 30
-
+    MAXCODESTRINGS = 30,
+    MAXUSERLEN = 128,
+    ENG = 1,
+    RU = 2,
+    CODENUM = 10,
+    MAXWORD = 128,
+    COUNTSENT = 20,
+    MAXSENT = 200,
+    COUNTWORDS = 15
 };
 
-typedef struct smode {
+typedef struct smode
+{
 
     const char *mode;
     const char *diff;
@@ -26,33 +34,37 @@ typedef struct smode {
 void displaymenue(int pos, const char ***meparts, int part, smode *user0);
 int menue(smode *user0);
 void input_username(smode *user0);
+void display_sarr(char **cstrings, int x, int snumber);
+void display_results(time_t start, time_t stop, int sleeps, int fails, int sym, smode *user0);
 
-void words_easy();
-void words_normal();
-void read_words();
-void words_compare();
-void words_display();
+void wmode_eng(ifstream *in, uint8_t lang, smode *user0);
+void wmode_ru(smode *user0);
+void open_file_eng(smode *user, ifstream *in);
+void bubble_sort(int *array, int n);
+int rand_num_15(int *arr);
+int write_words(char **all_str, int *num_str, const char *mode);
+void write_user_words(char **all_str, char *ans);
 
-void sentences_easy();
-void sentensec_normal();
-void sentences_hard();
-void read_sentences();
-void sentences_compare();
-void sentences_display();
+void smode_eng(ifstream *in, smode *user0);
 
-int umode();
+int umode(uint8_t lang, smode *user0);
 int findsize();
 int writefile();
 int read_usermode(char **cstrings);
 
-int code_normal();
-int code_hard();
+int code_normal(uint8_t lang, smode *user0);
+int code_hard(uint8_t lang, smode *user0);
 //Массив строк, в который происходит чтение, номер рандомного кода, уровень сложности
 int read_code(char **cstrings, int num, const char *md);
 
-int code_compare(char *cstring, char * userstring);
-//x - номер строки, y - номер символа
-void code_display(char **cstrings, int x, int y, int ncolor, int snumber);
-
-int read_user_answer_code(char **cstrings, char **userstrings, int uscount);
+int scompare(char *cstring, char *userstring, uint8_t lang, int *fails);
+int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0);
 void modecycle(smode *user0);
+
+double count_percent_miss(int fails, int sim);
+double count_coefficient_miss(double persent_miss);
+double speed_print(int sym, int time);
+double count_score(smode *user0, int speed, double coefficient_miss);
+
+int slen(char *str);
+int lencount(char **str, int count);

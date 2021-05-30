@@ -1,47 +1,73 @@
 //Считывание ответов пользователя
 #include "../keynlibs/mainlib.hpp"
 
-int read_user_answer_code(char **cstrings, char **userstrings, int uscount) {
+int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0) {
 
-    int counter = 0, j, flag;
+    int counter = 0, j, flag, rsize, sleepcount = 0, fails = 0, len;
+    time_t start, stop;
 
-    char *temp  = (char*)malloc(MAXCODELENS*sizeof(char));
+    if (lang == RU)
+        rsize = MAXUSERLEN;
+    else if (lang == ENG)
+        rsize = MAXCODELENS;
+    if (strcmp(user0->mode, "sentences") == 0) {
+        rsize = 2*MAXSENT;
+    }
+
+    char *temp  = (char*)malloc(rsize*sizeof(char));
         if (temp == NULL) {
             return -1;
         }
-    
-    //Очистить последний символ буфера
-    getchar();
 
+    *userstrings = (char*)malloc(rsize*sizeof(char));
+    if (*userstrings == NULL) {
+        return -1;
+    }
+
+    start = time(NULL);
     while (1) {
 
-        code_display(cstrings, uscount, 1, counter, counter);
-
+        display_sarr(cstrings, uscount, counter);
         j = 0;
 
         if (counter == uscount)
             break;
         
-        userstrings[counter] = (char*)malloc(MAXCODELENS*sizeof(char));
-        cin.getline(userstrings[counter], MAXCODELENS, '\n');
+        cin.getline(*userstrings, rsize, '\n');
 
-            flag = code_compare(cstrings[counter], userstrings[counter]);
-            while (flag != 0) {
-            if (flag != 0) {
-                code_display(cstrings, uscount, 1, counter, counter);
-                cout << "\x1b[5;31m\t" << "TRY AGAIN" << "\x1b[0m" << endl;
-                cin.getline(userstrings[counter], MAXCODELENS, '\n');
-                flag = code_compare(cstrings[counter], userstrings[counter]);
+        if (strcmp(*userstrings, ":q!") == 0) {
+            system("clear");
+            menue(user0);
+        }
+
+        flag = scompare(cstrings[counter], *userstrings, lang, &fails);
+        sleepcount++;
+
+        while (flag == 0) {
+            if (flag == 0) {
+                display_sarr(cstrings, uscount, counter);
+                cin.getline(*userstrings, rsize, '\n');
+                if (strcmp(*userstrings, ":q!") == 0) {
+                    system("clear");
+                    menue(user0);
+                }
+                //Очистка потока (В случае, если введённая строка больше ожидаемой)
+                cin.clear();
+                flag = scompare(cstrings[counter], *userstrings, lang, &fails);
+                sleepcount++;
             }
             else {
                 j++;
                 flag = true;
             }
-            }
-
+        }
         counter++;
     }
+    stop = time(NULL);
+    len = lencount(cstrings, uscount);
+    display_results(start, stop, sleepcount, fails, len, user0);
 
+    free(*userstrings);
     free(temp);
 
     return 0;

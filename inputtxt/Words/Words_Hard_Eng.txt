@@ -1,0 +1,203 @@
+Interference
+Cross-talk
+Eavesdropper
+Fire hazard
+Attenuation
+Silica
+Core
+Cladding
+Refractive index
+Armoured cable
+Stepped-index mono-mode fibre
+Stepped-index multi-mode fibre
+Coating
+Surveillance
+Camcorders
+Bar code readers
+Resolution
+Substrate
+Underside
+To inject
+To overlay
+Complementary Metal-Oxide Semiconductor
+Array 
+Metal-oxide semiconductor
+Thermionic emission
+To radiate
+Vidicon tube
+Electron gun
+Scanning coil
+AF-audio frequency
+Scanning
+Flyback
+Raster
+To deflect
+Field scan
+Line scan
+Glass envelope
+Flared
+To clamp
+Bandwidth
+Interlaced scanning
+Intervening lines
+To snoop
+To piggy-back on
+Broadband connection
+Transceiver
+To intercept
+Directional transmitter
+Obsolete
+To pursue
+Incandescent bulb
+To flick
+Flicker
+To relay
+Set-up
+Free-space optics
+To be afoot
+Car headlight
+Tail-light
+To alert
+To convey
+Compatible
+Moving-coil meter
+Multimeter
+Calibrated scale
+Light-emittihg diode display
+To be rugget
+Fragile
+Numerical display
+alternating current
+Oscilloscope
+Enhance
+Alphanumeric display
+High-fidelity amplifier
+Polarizing filter
+Constituent
+Particle
+Overall
+Magnitude
+To deflect
+Shell
+Abundant
+Minute
+Thermistor
+Heat sensor
+To embed
+Acceptor
+Doping
+Impurity
+To donate
+Negligible
+Hole
+Bond
+Rival
+Consumption
+To be rugged
+Sophisticated
+Reliability
+To respond
+Spin-off
+Goods
+Purity
+Impact
+Switch
+To perform
+To require
+Turn out
+Insulator
+Overall
+Valve
+Bulb
+Filament
+Mesh
+To adjust
+Amplifier
+Advance
+Ray
+Discharge
+Tube
+Charge
+Amber
+Fossil
+Property
+Fluff
+To rub
+Ubiquitous
+To bring about
+To keep in touch
+Facility
+Satellite
+To launch
+Geostationary
+Approximately
+Equipment
+Milestone
+To accomplish
+Fibre
+Enormous
+To reflect
+Vehicle
+To keep track of
+To take up
+To capture
+A focal plane
+Sensor
+To convert
+Storage
+Factor
+Film
+Charge-coupled device
+Device
+Circuit
+Chip
+To spur
+Dependency
+Ultimately
+Sliver
+Silicon
+Application
+To process
+Development
+Compression
+Versatile
+To impair
+Download
+Lowdown
+Indication
+Upgrade
+Archiving
+Extension
+Unsolicited emails
+Transactions
+A spark coil
+A probe
+A wave train
+Light intensities
+An interception
+A gain
+To span 
+A ghosting
+A fading
+A live band
+A lag
+To log on
+To spread
+To enable
+Resilient
+Precise
+To imply
+To fraverse
+To increase
+To cover
+To be available
+Interchangeable
+Consistent
+To encrypt
+To plug
+To convey
+To enforce
+Password
+Wireless Connection
+Limited
+Connectivity
