@@ -1,5 +1,30 @@
 #include "../keynlibs/mainlib.hpp"
 
+double count_percent_miss(int fails, int sim)
+{
+    double result;
+    result = ((double)fails / (double)sim) * 100;
+    if (result > 100)
+    {
+        return -1;
+    }
+    return result;
+}
+
+double count_coefficient_miss(double persent_miss)
+{
+    if (persent_miss > 100)
+    {
+        return -1;
+    }
+    return (persent_miss / 100);
+}
+
+double speed_print(int sym, int time)
+{
+    return ((double)sym / (double)time);
+}
+
 double count_score(smode *user0, int speed, double coefficient_miss)
 {
     double r;
@@ -47,23 +72,40 @@ double count_score(smode *user0, int speed, double coefficient_miss)
         r = 2.4;
     }
 
-    double score = (double)(speed * r * (1 - coefficient_miss));
+    double score = (double)speed * r * (1 - coefficient_miss);
     return score;
 }
 
-double count_percent_miss(int fails, int sim)
+int rangs(double score)
 {
-    double result;
-    result = ((double)fails / (double)sim) * 100;
-    return (double)result;
-}
+    if (score < 5)
+    {
+        return 1;
+    }
 
-double count_coefficient_miss(double persent_miss)
-{
-    return (double)(persent_miss / 100);
-}
+    if ((score >= 5) && (score < 10))
+    {
+        return 2;
+    }
 
-double speed_print(int sym, int time)
-{
-    return (double)(sym / time);
+    if ((score >= 10) && (score < 15))
+    {
+        return 3;
+    }
+
+    if ((score >= 15) && (score < 25))
+    {
+        return 4;
+    }
+
+    if ((score >= 25) && (score < 30))
+    {
+        return 5;
+    }
+
+    if (score >= 30)
+    {
+        return 6;
+    }
+    return -1;
 }
