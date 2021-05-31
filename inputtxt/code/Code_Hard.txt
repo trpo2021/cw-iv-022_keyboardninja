@@ -1,56 +1,63 @@
 ###
-unsigned int JenkinsHash(char* s)
-{
-    unsigned int h = 0;
-    while (*s) {
-        h += (unsigned int)*s++;
-        h += (h << 10);
-        h ^= (h >> 6);
-    }
-    h += (h << 3);
-    h ^= (h >> 11);
-    h += (h << 15);
-    return h % HASHTAB_SIZE;
-}
-###
-struct listnode* hashtab_lookup(struct listnode** hashtab, char* key)
-{
-    struct listnode* node;
+    while (1) {
+        j = 0;
+        counter++;
+        fread(temp, 1, 1, ocd);
 
-    int index = JenkinsHash(key);
-    for (node = hashtab[index]; node != NULL; node = node->next) {
-        if (0 == strcmp(node->key, key))
-            return node;
+        while (*temp >= 128) {
+            (*value)[j] = *temp;
+            fread(temp, 1, 1, ocd);
+            j++;
+            counter++;
+        }
+
+        if (feof(ocd)) {
+            printf("counter : %d\n", counter);
+            break;
+        }
+
+        (*value)[j] = *temp;
+        const uint8_t **val_cp = (const uint8_t **) value;
+
+        uint32_t uncode = decode_varint(val_cp);
+        fprintf(odd, "%d\n", uncode);
     }
-    return NULL;
+###
+heap *heap_create(int maxsize) {
+    heap *h;
+    h = (heap *)malloc(sizeof(*h));
+
+    if (h != NULL) {
+        h->maxsize = maxsize;
+        h->nnodes = 0;
+        h->nodes = (heapnode*)malloc(sizeof(*h->nodes)*(maxsize + 1));
+        h->pos = (int *)calloc((maxsize + 1), sizeof(int));
+    
+        if (h->nodes == NULL) {
+            free(h);
+            return NULL;
+        }
+    }
+    return h;
 }
 ###
-int main()
-{
-    struct listnode* node;
-    char* str[200000];
-    int* a;
-    int k = 0;
-    a = &k;
-    FILE* f;
-    double time1, time2, time;
-    f = fopen("text.txt", "r");
-    for (int i = 0; i < 200000; i++) {
-        str[i] = malloc(128);
-        fscanf(f, "%127s", str[i]);
-    }
-    hashtab_init(hashtab);
-    for (int i = 0; i < 200000; i++) {
-        hashtab_add(hashtab, str[i], i, a);
-    }
-    time1 = wtime();
-    node = hashtab_lookup(hashtab, "languente");
-    time2 = wtime();
-    time = time2 - time1;
-    printf("%s\n", node->key);
-    printf("%d\n", k);
-    printf("%.9lf\n", time);
+int int_vector_reserve(IntVector *v, size_t new_capacity) {
+
+  int *check = NULL;
+
+  if (v != NULL && new_capacity > v->capacity && new_capacity > 0) {
+    
+    check = (int *)realloc(v->arr, new_capacity * sizeof(int));
+
+    if (check != NULL)
+      v->arr = check;
+    
+    if (v->arr == NULL)
+      return -1;
+    v->capacity = new_capacity;
     return 0;
+  } else
+    return -1;
 }
 ###
 void bstree_add(struct bstree* tree, char* key, int value)
@@ -142,21 +149,6 @@ void bstree_delete(struct bstree* tree, char* key)
         parent->right = child;
         return;
     }
-    if (b == 1) {
-        free(node);
-        parent->left = child;
-        return;
-    }
-    if (a == 0) {
-        parent->right = NULL;
-        free(node);
-        return;
-    }
-    if (a == 1) {
-        parent->left = NULL;
-        free(node);
-        return;
-    }
 }
 ###
 int main()
@@ -176,7 +168,6 @@ int main()
         str[i] = malloc(128);
         fscanf(f, "%127s", str[i]);
     }
-    printf("%s\n", str[0]);
     tree = bstree_create("bstree", 100);
     for (int i = 1; i < 200000; i++) {
         bstree_add(tree, str[i - 1], i - 1);
@@ -185,8 +176,6 @@ int main()
     node = bstree_max(tree);
     time2 = wtime();
     time = time2 - time1;
-    printf("%s\n", node->key);
-    printf("%.9lf\n", time);
 }
 ###
 #include <iostream>
