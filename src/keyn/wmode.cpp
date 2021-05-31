@@ -64,7 +64,6 @@ void wmode_eng(std::ifstream* in, uint8_t lang, smode* user0)
         free(arr_words[p]);
     }
     free(arr_words);
-    free(ans_word);
     free(str_num);
     free(temp);
 }

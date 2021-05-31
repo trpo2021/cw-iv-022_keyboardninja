@@ -40,7 +40,8 @@ int writefile()
               << "\tPress i to switch to edit mode\n"
               << "Press Esc and enter <:quit!> to exit text editor or <:w> to "
                  "save changes\n";
-    sleep(1);
+    std::cout << "\n\tPress any key to continue...\n";
+    getchar();
 
     system("edit ../inputtxt/usermode/usermode.txt");
 
