@@ -37,6 +37,12 @@ int read_code(char** cstrings, int num, const char* md)
         if (c == num) {
             do {
                 cstrings[i] = (char*)malloc(MAXCODELENS * sizeof(char));
+                if (cstrings[i] == NULL) {
+                    for (int p = 0; p < i; p++) {
+                        free(cstrings[p]);
+                    }
+                    return -1;
+                }
 
                 if (i >= 1 && strcmp(cstrings[i - 1], "###") == 0)
                     break;
@@ -68,6 +74,12 @@ int read_usermode(char** cstrings)
 
     while (!in.eof()) {
         cstrings[i] = (char*)malloc(MAXUSERLEN * sizeof(char));
+        if (cstrings[i] == NULL) {
+            for (int p = 0; p < i; p++) {
+                free(cstrings[p]);
+            }
+            return -1;
+        }
         in.getline(cstrings[i], MAXUSERLEN);
 
         if (in.eof())
