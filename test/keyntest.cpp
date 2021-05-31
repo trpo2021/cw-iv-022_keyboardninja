@@ -1,5 +1,5 @@
-#include "../thirdparty/ctest.h"
 #include "../src/keynlibs/mainlib.hpp"
+#include "../thirdparty/ctest.h"
 
 // TEST #1
 CTEST(scompare_test, true_status)
@@ -220,7 +220,6 @@ CTEST(scompare_test, fails_count5)
 
 CTEST(counting, persent_test_1)
 {
-
     double rez = 0;
 
     int sim = 100;
@@ -354,7 +353,7 @@ CTEST(counting, count_score_3_0)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "words";
     user0->diff = "normal";
@@ -374,7 +373,7 @@ CTEST(counting, count_score_3_1)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "words";
     user0->diff = "hard";
@@ -394,7 +393,7 @@ CTEST(counting, count_score_3)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "sentences";
     user0->diff = "hard";
@@ -414,7 +413,7 @@ CTEST(counting, count_score_4)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "sentences";
     user0->diff = "normal";
@@ -434,7 +433,7 @@ CTEST(counting, count_score_5)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "code";
     user0->diff = "normal";
@@ -454,7 +453,7 @@ CTEST(counting, count_score_6)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "code";
     user0->diff = "hard";
@@ -474,7 +473,7 @@ CTEST(counting, count_score_6_2)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "words";
     user0->diff = "normal";
@@ -494,7 +493,7 @@ CTEST(counting, count_score_6_3)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "words";
     user0->diff = "hard";
@@ -514,7 +513,7 @@ CTEST(counting, count_score_6_4)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "sentences";
     user0->diff = "hard";
@@ -534,7 +533,7 @@ CTEST(counting, count_score_6_5)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "sentences";
     user0->diff = "normal";
@@ -554,7 +553,7 @@ CTEST(counting, count_score_6_6)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "code";
     user0->diff = "normal";
@@ -574,7 +573,7 @@ CTEST(counting, count_score_6_7)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "code";
     user0->diff = "normal";
@@ -596,7 +595,7 @@ CTEST(counting, count_score_7)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "words";
     user0->diff = "normal";
@@ -616,7 +615,7 @@ CTEST(counting, count_score_8)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "words";
     user0->diff = "hard";
@@ -636,7 +635,7 @@ CTEST(counting, count_score_9)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "sentences";
     user0->diff = "hard";
@@ -656,7 +655,7 @@ CTEST(counting, count_score_10)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "sentences";
     user0->diff = "normal";
@@ -676,7 +675,7 @@ CTEST(counting, count_score_11)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "code";
     user0->diff = "normal";
@@ -696,7 +695,7 @@ CTEST(counting, count_score_12)
 {
     double rez = 0;
 
-    smode *user0 = (smode *)malloc(sizeof(smode));
+    smode* user0 = (smode*)malloc(sizeof(smode));
 
     user0->mode = "code";
     user0->diff = "normal";

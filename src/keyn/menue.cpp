@@ -1,28 +1,28 @@
 #include "../keynlibs/mainlib.hpp"
 
-int menue(smode *user0) {
-
+int menue(smode* user0)
+{
     bool run = true;
     int select = 0;
     char key = '3';
     int pt = 0;
 
-    const char ***mparts = (const char***)malloc(4*sizeof(char**));
+    const char*** mparts = (const char***)malloc(4 * sizeof(char**));
     if (mparts == NULL) {
-        cout << "Memory allocation error\n";
+        std::cout << "Memory allocation error\n";
         return -1;
     }
     for (int i = 0; i < 4; i++) {
-        mparts[i] = (const char**)calloc(4,sizeof(char*));
+        mparts[i] = (const char**)calloc(4, sizeof(char*));
         if (*mparts == NULL) {
-            cout << "Memory allocation error\n";
+            std::cout << "Memory allocation error\n";
             return -1;
         }
         for (int j = 0; j < 4; j++) {
-            (*mparts)[i] = (char*)malloc(15*sizeof(char));
-        
+            (*mparts)[i] = (char*)malloc(15 * sizeof(char));
+
             if (**mparts == NULL) {
-                cout << "Memory allocation error\n";
+                std::cout << "Memory allocation error\n";
                 return -1;
             }
         }
@@ -66,13 +66,11 @@ int menue(smode *user0) {
     }
 
     while (run) {
-        
         displaymenue(select, mparts, pt, user0);
 
         key = getchar();
 
-        switch (key)
-        {
+        switch (key) {
         case 'q':
             run = false;
             break;
@@ -81,13 +79,11 @@ int menue(smode *user0) {
             if (pt == 0) {
                 system("clear");
                 exit(0);
-            }
-            else if (pt == 1) {
-                user0->mode = (char*) "code";
+            } else if (pt == 1) {
+                user0->mode = (char*)"code";
                 pt++;
-            }
-            else if (pt == 2) {
-                user0->diff = (char*) "hard";
+            } else if (pt == 2) {
+                user0->diff = (char*)"hard";
                 pt++;
                 if (strcmp(user0->mode, "code") == 0)
                     run = false;
@@ -97,30 +93,32 @@ int menue(smode *user0) {
         case '2':
             if (pt == 0) {
                 system("clear");
-                cout << "\n\t\x1b[5;36m" << "Check our repository for more info : " <<"\x1b[0m\n\n";
-                cout << "https://github.com/trpo2021/cw-iv-022_keyboardninja";
-                cout << "\n\n\t\x1b[5;32m" << "Follow the link (Сtrl + Сlick)" <<"\x1b[0m\n";
+                std::cout << "\n\t\x1b[5;36m"
+                          << "Check our repository for more info : "
+                          << "\x1b[0m\n\n";
+                std::cout << "https://github.com/trpo2021/"
+                             "cw-iv-022_keyboardninja";
+                std::cout << "\n\n\t\x1b[5;32m"
+                          << "Follow the link (Сtrl + Сlick)"
+                          << "\x1b[0m\n";
                 sleep(5);
-            }
-            else if (pt == 1) {
-                user0->mode = (char*) "sentences";
+            } else if (pt == 1) {
+                user0->mode = (char*)"sentences";
                 pt++;
-            }
-            else if (pt == 2) {
-                user0->diff = (char*) "normal";
+            } else if (pt == 2) {
+                user0->diff = (char*)"normal";
                 pt++;
                 if (strcmp(user0->mode, "code") == 0)
                     run = false;
-            }
-            else if (pt == 3 && strcmp(user0->mode, "code") != 0) {
-                user0->lang = (char*) "eng";
+            } else if (pt == 3 && strcmp(user0->mode, "code") != 0) {
+                user0->lang = (char*)"eng";
                 run = false;
             }
             break;
-        
-        case '4' :
+
+        case '4':
             if (pt == 1) {
-                user0->mode = (char*) "usermode";
+                user0->mode = (char*)"usermode";
                 run = false;
             }
             break;
@@ -128,27 +126,21 @@ int menue(smode *user0) {
         case '1':
             if (pt == 0) {
                 pt++;
-            }
-            else if (pt == 1) {
-                user0->mode = (char*) "words";
+            } else if (pt == 1) {
+                user0->mode = (char*)"words";
                 pt++;
-            }
-            else if (pt == 2) {
-                    system("clear");
-                    cout << "\x1b[5;31m\n\n\t" << "Wrong difficulty level" << "\x1b[0m" << endl;
-                    sleep(1);
-                // }
-                // else {
-                //     user0->diff = (char*) "easy";
-                //     pt++;
-                // }
+            } else if (pt == 2) {
+                system("clear");
+                std::cout << "\x1b[5;31m\n\n\t"
+                          << "Wrong difficulty level"
+                          << "\x1b[0m" << std::endl;
+                sleep(1);
             }
             break;
 
         default:
             break;
         }
-
     }
 
     for (int i = 0; i < 4; i++) {
@@ -161,43 +153,48 @@ int menue(smode *user0) {
     return 0;
 }
 
-void displaymenue(int pos, const char ***meparts, int part, smode *user0) {
-
+void displaymenue(int pos, const char*** meparts, int part, smode* user0)
+{
     system("clear");
 
-    cout << "\x1b[4;35m\t" << "KEYBOARD NINJA" << "\x1b[0m" << endl;
+    std::cout << "\x1b[4;35m\t"
+              << "KEYBOARD NINJA"
+              << "\x1b[0m" << std::endl;
     if (part == 0) {
-        cout << "\t" << meparts[part][pos] << endl;
-        cout << "\t" << meparts[part][1] << endl;
-        cout << "\t" << meparts[part][2] << endl;
+        std::cout << "\t" << meparts[part][pos] << std::endl;
+        std::cout << "\t" << meparts[part][1] << std::endl;
+        std::cout << "\t" << meparts[part][2] << std::endl;
+    } else if (part == 1) {
+        std::cout << "\t" << meparts[part][pos] << std::endl;
+        std::cout << "\t" << meparts[part][1] << std::endl;
+        std::cout << "\t" << meparts[part][2] << std::endl;
+        std::cout << "\t" << meparts[part][3] << std::endl;
+    } else if (part == 2) {
+        std::cout << "\x1b[8;35m"
+                  << "\t" << meparts[part][pos] << "\x1b[0m" << std::endl;
+        std::cout << "\t" << meparts[part][1] << std::endl;
+        std::cout << "\t" << meparts[part][2] << std::endl;
+    } else if (part == 3) {
+        std::cout << "\t"
+                  << "\x1b[8;35m" << meparts[part][pos] << "\x1b[0m"
+                  << std::endl;
+        std::cout << "\t" << meparts[part][1] << std::endl;
     }
-    else if (part == 1) {
-        cout << "\t" << meparts[part][pos] << endl;
-        cout << "\t" << meparts[part][1] << endl;
-        cout << "\t" << meparts[part][2] << endl;
-        cout << "\t" << meparts[part][3] << endl;
-    }
-    else if (part == 2) {
-            cout << "\x1b[8;35m" << "\t" << meparts[part][pos] << "\x1b[0m" << endl;
-            cout << "\t" << meparts[part][1] << endl;
-            cout << "\t" << meparts[part][2] << endl;
-    }
-    else if (part == 3) {
-        cout << "\t" << "\x1b[8;35m" << meparts[part][pos] << "\x1b[0m" << endl;
-        cout << "\t" << meparts[part][1] << endl;
-    }
-        
 }
 
-void input_username(smode *user0) {
-
+void input_username(smode* user0)
+{
     system("clear");
 
-    cout << "\x1b[5;35m" << "      Enter you username" << "\x1b[0m" << endl;
-    cout << "  ";
-    cout << "\x1b[4;31m\t" << "max 15 symbols" << "\x1b[0m" << endl;
+    std::cout << "\x1b[5;35m"
+              << "      Enter you username"
+              << "\x1b[0m" << std::endl;
+    std::cout << "  ";
+    std::cout << "\x1b[4;31m\t"
+              << "max 15 symbols"
+              << "\x1b[0m" << std::endl;
 
     getchar();
-    cin.getline(user0->username, 15);
-    cin.clear();
+    std::cin.getline(user0->username, 15);
+    std::cin.clear();
 }
