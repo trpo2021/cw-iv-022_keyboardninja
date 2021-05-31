@@ -1,22 +1,21 @@
 #include "../keynlibs/mainlib.hpp"
 
-int findsize() {
-
-    ifstream input;
+int findsize()
+{
+    std::ifstream input;
     input.open("../inputtxt/usermode/usermode.txt");
 
     int fsize = 0;
 
-    char *temp = (char *)malloc(MAXUSERLEN*sizeof(char));
+    char* temp = (char*)malloc(MAXUSERLEN * sizeof(char));
 
     while (!input.eof()) {
-
         input.getline(temp, MAXUSERLEN);
 
         if (input.eof())
             break;
 
-        input.clear();     
+        input.clear();
 
         fsize++;
     }

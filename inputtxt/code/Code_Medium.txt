@@ -8,40 +8,27 @@ int main()
     printf("z = %d\n", z);
 }
 ###
-#include <stdio.h>
+int symcnt (char *arr, char sym) {
 
-void swap(int* a, int* b)
-{
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
+    int i = 0, counter = 0;
 
-void bubble_sort(int* array, int size)
-{
-    int i, j;
-    for (i = 1; i < size; ++i) {
-        for (j = 0; j < size - i; ++j) {
-            if (array[j] > array[j + 1]) {
-                swap(&array[j], &array[j + 1]);
-            }
-        }
+    while (arr[i] != '\0') {
+        if (arr[i] == sym)
+            counter++;
+        i++;
     }
+
+    return counter + 1;
 }
 ###
-int main()
-{
-    int array[100] = {10, 15, 5, 4, 21, 7};
+int degree (int n, int deg) {
 
-    bubble_sort(array, 6);
+    if (deg == 1)
+        return n;
+    if (deg == 0)
+        return 1;
 
-    int i;
-    for (i = 0; i < 6; ++i) {
-        printf("%d ", array[i]);
-    }
-
-    printf("\n");
-    return 0;
+    return n*degree(n, deg - 1);
 }
 ###
 struct bstree {
@@ -52,18 +39,14 @@ struct bstree {
     struct bstree* right;
 };
 ###
-struct bstree* bstree_create(char* key, int value)
-{
-    struct bstree* node;
+int slen(char *str) {
 
-    node = malloc(sizeof(*node));
-    if (node != NULL) {
-        node->key = key;
-        node->value = value;
-        node->left = NULL;
-        node->right = NULL;
-    }
-    return node;
+    int len;
+
+    for (int i = 0; str[i] != '\0'; i++)
+        len = i;
+
+    return len;
 }
 ###
 double wtime()
@@ -73,17 +56,15 @@ double wtime()
     return (double)t.tv_sec + (double)t.tv_usec * 1E-6;
 }
 ###
-struct bstree* bstree_lookup(struct bstree* tree, char* key)
-{
-    while (tree != NULL) {
-        if (0 == strcmp(key, tree->key)) {
-            return tree;
-        } else if (0 > strcmp(key, tree->key))
-            tree = tree->left;
-        else
-            tree = tree->right;
-    }
-    return tree;
+int schr(char *str, char delim) {
+    int i, indx = -1;
+
+    for (i = 0; (str[i]) != '\0' && (str[i] != delim); i++);
+
+    if (str[i] == delim)
+        indx = i;
+
+    return indx;
 }
 ###
 struct bstree* bstree_min(struct bstree* tree)

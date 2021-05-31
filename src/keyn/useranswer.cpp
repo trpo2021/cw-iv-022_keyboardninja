@@ -1,8 +1,12 @@
-//Считывание ответов пользователя
 #include "../keynlibs/mainlib.hpp"
 
-int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t lang, smode *user0) {
-
+int readusansw_uscode(
+        char** cstrings,
+        char** userstrings,
+        int uscount,
+        uint8_t lang,
+        smode* user0)
+{
     int counter = 0, j, flag, rsize, sleepcount = 0, fails = 0, len;
     time_t start, stop;
 
@@ -11,29 +15,28 @@ int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t 
     else if (lang == ENG)
         rsize = MAXCODELENS;
     if (strcmp(user0->mode, "sentences") == 0) {
-        rsize = 2*MAXSENT;
+        rsize = 2 * MAXSENT;
     }
 
-    char *temp  = (char*)malloc(rsize*sizeof(char));
-        if (temp == NULL) {
-            return -1;
-        }
+    char* temp = (char*)malloc(rsize * sizeof(char));
+    if (temp == NULL) {
+        return -1;
+    }
 
-    *userstrings = (char*)malloc(rsize*sizeof(char));
+    *userstrings = (char*)malloc(rsize * sizeof(char));
     if (*userstrings == NULL) {
         return -1;
     }
 
     start = time(NULL);
     while (1) {
-
         display_sarr(cstrings, uscount, counter);
         j = 0;
 
         if (counter == uscount)
             break;
-        
-        cin.getline(*userstrings, rsize, '\n');
+
+        std::cin.getline(*userstrings, rsize, '\n');
 
         if (strcmp(*userstrings, ":q!") == 0) {
             system("clear");
@@ -46,17 +49,15 @@ int readusansw_uscode(char **cstrings, char **userstrings, int uscount, uint8_t 
         while (flag == 0) {
             if (flag == 0) {
                 display_sarr(cstrings, uscount, counter);
-                cin.getline(*userstrings, rsize, '\n');
+                std::cin.getline(*userstrings, rsize, '\n');
                 if (strcmp(*userstrings, ":q!") == 0) {
                     system("clear");
                     menue(user0);
                 }
-                //Очистка потока (В случае, если введённая строка больше ожидаемой)
-                cin.clear();
+                std::cin.clear();
                 flag = scompare(cstrings[counter], *userstrings, lang, &fails);
                 sleepcount++;
-            }
-            else {
+            } else {
                 j++;
                 flag = true;
             }
