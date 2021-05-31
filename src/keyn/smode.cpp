@@ -24,5 +24,4 @@ void smode_eng(std::ifstream* in, smode* user0)
     readusansw_uscode(&str, &ans, 1, ENG, user0);
 
     free(str);
-    free(ans);
 }

@@ -18,11 +18,6 @@ int readusansw_uscode(
         rsize = 2 * MAXSENT;
     }
 
-    char* temp = (char*)malloc(rsize * sizeof(char));
-    if (temp == NULL) {
-        return -1;
-    }
-
     *userstrings = (char*)malloc(rsize * sizeof(char));
     if (*userstrings == NULL) {
         return -1;
@@ -69,7 +64,6 @@ int readusansw_uscode(
     display_results(start, stop, sleepcount, fails, len, user0);
 
     free(*userstrings);
-    free(temp);
 
     return 0;
 }

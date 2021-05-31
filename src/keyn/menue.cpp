@@ -72,8 +72,11 @@ int menue(smode* user0)
 
         switch (key) {
         case 'q':
-            run = false;
-            break;
+            for (int i = 0; i < 4; i++) {
+                free((mparts)[i]);
+            }
+            free(mparts);
+            return 0;
 
         case '3':
             if (pt == 0) {
@@ -82,7 +85,7 @@ int menue(smode* user0)
             } else if (pt == 1) {
                 user0->mode = (char*)"code";
                 pt++;
-            } else if (pt == 2) {
+            } else if (pt == 2 && strcmp(user0->mode, "words") != 0) {
                 user0->diff = (char*)"hard";
                 pt++;
                 if (strcmp(user0->mode, "code") == 0)
@@ -173,7 +176,10 @@ void displaymenue(int pos, const char*** meparts, int part, smode* user0)
         std::cout << "\x1b[8;35m"
                   << "\t" << meparts[part][pos] << "\x1b[0m" << std::endl;
         std::cout << "\t" << meparts[part][1] << std::endl;
-        std::cout << "\t" << meparts[part][2] << std::endl;
+        if (strcmp(user0->mode, "words") != 0)
+            std::cout << "\t" << meparts[part][2] << std::endl;
+        else 
+            std::cout << "\x1b[8;35m" << "\t" << meparts[part][2] << "\x1b[0m" << std::endl;
     } else if (part == 3) {
         std::cout << "\t"
                   << "\x1b[8;35m" << meparts[part][pos] << "\x1b[0m"
