@@ -5,7 +5,7 @@ int slen(char* str)
     int len;
 
     for (int i = 0; str[i] != '\0'; i++)
-        len = i;
+        len = i + 1;
 
     return len;
 }
