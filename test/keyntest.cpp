@@ -321,10 +321,7 @@ CTEST(lencount_test, characters_counting_en1)
 {
     CTEST_LOG("CHARACTERS_COUNTING_EN");
 
-    char **arr = (char**)malloc(5*sizeof(char*));
-    for (int p = 0; p < 5; p++) {
-        arr[p] = (char*)malloc(10*sizeof(char));
-    }
+    char* arr[5];
     arr[0] = (char*)"zero";
     arr[1] = (char*)"one";
     arr[2] = (char*)"two";
@@ -333,11 +330,6 @@ CTEST(lencount_test, characters_counting_en1)
 
     int rez = lencount(arr, 5);
 
-    for (int p = 0; p < 5; p++) {
-        free(arr[p])
-    }
-    free(arr);
-
     ASSERT_EQUAL(19, rez);
 }
 // TEST #26
@@ -345,10 +337,8 @@ CTEST(lencount_test, characters_counting_en2)
 {
     CTEST_LOG("CHARACTERS_COUNTING_EN(WithSpecs)");
 
-    char **arr = (char**)malloc(5*sizeof(char*));
-    for (int p = 0; p < 5; p++) {
-        arr[p] = (char*)malloc(25*sizeof(char));
-    }
+    char* arr[5];
+
     arr[0] = (char*)"zero \t with specs";
     arr[1] = (char*)"one uiiii";
     arr[2] = (char*)"two nice";
@@ -357,11 +347,6 @@ CTEST(lencount_test, characters_counting_en2)
 
     int rez = lencount(arr, 5);
 
-    for (int p = 0; p < 5; p++) {
-        free(arr[p])
-    }
-    free(arr);
-
     ASSERT_EQUAL(62, rez);
 }
 // TEST #27
@@ -369,10 +354,8 @@ CTEST(lencount_test, characters_counting_ru1)
 {
     CTEST_LOG("CHARACTERS_COUNTING_RU");
 
-    char **arr = (char**)malloc(5*sizeof(char*));
-    for (int p = 0; p < 5; p++) {
-        arr[p] = (char*)malloc(32*sizeof(char));
-    }
+    char* arr[5];
+
     arr[0] = (char*)"ноль";
     arr[1] = (char*)"один уиии";
     arr[2] = (char*)"два\n";
@@ -381,31 +364,7 @@ CTEST(lencount_test, characters_counting_ru1)
 
     int rez = lencount(arr, 5);
 
-    for (int p = 0; p < 5; p++) {
-        free(arr[p])
-    }
-    free(arr);
-
     ASSERT_EQUAL(86, rez);
-}
-// TEST #28
-CTEST(lencount_test, characters_counting_emptyarr)
-{
-    CTEST_LOG("CHARACTERS_COUNTING_EMPTYARR");
-
-    char **arr = (char**)malloc(5*sizeof(char*));
-    for (int p = 0; p < 5; p++) {
-        arr[p] = (char*)malloc(25*sizeof(char));
-    }
-
-    int rez = lencount(arr, 5);
-
-    for (int p = 0; p < 5; p++) {
-        free(arr[p])
-    }
-    free(arr);
-
-    ASSERT_EQUAL(0, rez);
 }
 
 CTEST(counting, persent_test_1)
