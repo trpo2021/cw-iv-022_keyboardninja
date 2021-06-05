@@ -15,11 +15,15 @@ CTEST(scompare_test, true_status)
     char req[6] = "check";
     char ans[6] = "check";
 
-    scompare(str1, str2, ENG, &add);
-    const int rez = scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    scompare(str1, str2, ENG, &add, &status);
+    const int rez = scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(rez, 1);
     ASSERT_EQUAL(1, rez);
+
+    free(status);
 }
 // TEST #2
 CTEST(scompare_test, false_status1)
@@ -31,9 +35,13 @@ CTEST(scompare_test, false_status1)
     char req[6] = "check";
     char ans[7] = "checkk";
 
-    const int rez = scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(7, sizeof(bool));
 
-    ASSERT_EQUAL(0, rez);
+    const int rez = scompare(req, ans, ENG, &fails, &status);
+
+    ASSERT_EQUAL(2, rez);
+
+    free(status);
 }
 // TEST #3
 CTEST(scompare_test, false_status2)
@@ -45,9 +53,13 @@ CTEST(scompare_test, false_status2)
     char req[6] = "check";
     char ans[6] = "chec";
 
-    const int rez = scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(7, sizeof(bool));
+
+    const int rez = scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(0, rez);
+
+    free(status);
 }
 // TEST #4
 CTEST(scompare_test, false_status3)
@@ -59,9 +71,13 @@ CTEST(scompare_test, false_status3)
     char req[6] = "check";
     char ans[6] = "\n";
 
-    const int rez = scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    const int rez = scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(0, rez);
+
+    free(status);
 }
 // TEST #5
 CTEST(scompare_test, false_status4)
@@ -73,9 +89,13 @@ CTEST(scompare_test, false_status4)
     char req[6] = "check";
     char ans[6] = "12345";
 
-    const int rez = scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    const int rez = scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(0, rez);
+
+    free(status);
 }
 // TEST #6
 CTEST(scompare_test, false_status5)
@@ -87,9 +107,13 @@ CTEST(scompare_test, false_status5)
     char req[6] = "check";
     char ans[13] = "привет";
 
-    const int rez = scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(13, sizeof(bool));
+
+    const int rez = scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(0, rez);
+
+    free(status);
 }
 // TEST #7
 CTEST(scompare_test, trueru_status1)
@@ -101,9 +125,13 @@ CTEST(scompare_test, trueru_status1)
     char req[13] = "привет";
     char ans[13] = "привет";
 
-    int rez = scompare(req, ans, RU, &fails);
+    bool *status = (bool*)calloc(13, sizeof(bool));
+
+    int rez = scompare(req, ans, RU, &fails, &status);
 
     ASSERT_EQUAL(1, rez);
+
+    free(status);
 }
 // TEST #8
 CTEST(scompare_test, trueru_status2)
@@ -115,9 +143,13 @@ CTEST(scompare_test, trueru_status2)
     char req[13] = "привет";
     char ans[13] = "привед";
 
-    int rez = scompare(req, ans, RU, &fails);
+    bool *status = (bool*)calloc(13, sizeof(bool));
+
+    int rez = scompare(req, ans, RU, &fails, &status);
 
     ASSERT_EQUAL(0, rez);
+
+    free(status);
 }
 // TEST #9
 CTEST(scompare_test, caps_status1)
@@ -129,9 +161,13 @@ CTEST(scompare_test, caps_status1)
     char req[6] = "HELLO";
     char ans[6] = "HELLO";
 
-    int rez = scompare(req, ans, RU, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    int rez = scompare(req, ans, RU, &fails, &status);
 
     ASSERT_EQUAL(1, rez);
+
+    free(status);
 }
 // TEST #10
 CTEST(scompare_test, caps_status2)
@@ -143,9 +179,13 @@ CTEST(scompare_test, caps_status2)
     char req[13] = "ПРИВЕТ";
     char ans[13] = "ПРИВЕТ";
 
-    int rez = scompare(req, ans, RU, &fails);
+    bool *status = (bool*)calloc(13, sizeof(bool));
+
+    int rez = scompare(req, ans, RU, &fails, &status);
 
     ASSERT_EQUAL(1, rez);
+
+    free(status);
 }
 // TEST #11
 CTEST(scompare_test, fails_count1)
@@ -157,9 +197,13 @@ CTEST(scompare_test, fails_count1)
     char req[6] = "check";
     char ans[6] = "check";
 
-    scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(0, fails);
+
+    free(status);
 }
 // TEST #12
 CTEST(scompare_test, fails_count2)
@@ -171,9 +215,13 @@ CTEST(scompare_test, fails_count2)
     char req[6] = "check";
     char ans[6] = "chect";
 
-    scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(1, fails);
+
+    free(status);
 }
 // TEST #13
 CTEST(scompare_test, fails_count3)
@@ -185,9 +233,13 @@ CTEST(scompare_test, fails_count3)
     char req[6] = "check";
     char ans[6] = " ";
 
-    scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(6, sizeof(bool));
+
+    scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(5, fails);
+
+    free(status);
 }
 // TEST #14
 CTEST(scompare_test, fails_count4)
@@ -197,11 +249,15 @@ CTEST(scompare_test, fails_count4)
     int fails = 0;
 
     char req[6] = "check";
-    char ans[8] = "checke";
+    char ans[7] = "checke";
 
-    scompare(req, ans, ENG, &fails);
+    bool *status = (bool*)calloc(7, sizeof(bool));
+
+    scompare(req, ans, ENG, &fails, &status);
 
     ASSERT_EQUAL(1, fails);
+
+    free(status);
 }
 // TEST #15
 CTEST(scompare_test, fails_count5)
@@ -211,11 +267,33 @@ CTEST(scompare_test, fails_count5)
     int fails = 0;
 
     char req[13] = "привет";
-    char ans[6] = "check";
+    char ans[13] = "check";
 
-    scompare(req, ans, RU, &fails);
+    bool *status = (bool*)calloc(13, sizeof(bool));
 
-    ASSERT_EQUAL(1, fails);
+    scompare(req, ans, RU, &fails, &status);
+
+    ASSERT_EQUAL(12, fails);
+
+    free(status);
+}
+// TEST #15.1
+CTEST(scompare_test, fails_count6)
+{
+    CTEST_LOG("FAILS_COUNTER_CHECK(EN-RU)");
+
+    int fails = 0;
+
+    char req[6] = "check";
+    char ans[13] = "привет";
+
+    bool *status = (bool*)calloc(13, sizeof(bool));
+
+    scompare(req, ans, RU, &fails, &status);
+
+    ASSERT_EQUAL(5, fails);
+
+    free(status);
 }
 // TEST #16
 CTEST(slen_test, symcounting_en)
