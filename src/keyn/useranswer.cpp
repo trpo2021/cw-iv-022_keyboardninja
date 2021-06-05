@@ -18,7 +18,7 @@ int readusansw_uscode(
         rsize = 2 * MAXSENT;
     }
 
-    bool *compsave = (bool*)calloc(rsize, sizeof(bool));
+    bool* compsave = (bool*)calloc(rsize, sizeof(bool));
     if (compsave == NULL) {
         std::cout << "Memory allocation error!\n";
         return -1;
@@ -46,34 +46,36 @@ int readusansw_uscode(
             menue(user0);
         }
 
-        flag = scompare(cstrings[counter], *userstrings, lang, &fails, &compsave);
+        flag = scompare(
+                cstrings[counter], *userstrings, lang, &fails, &compsave);
         if (flag == 2) {
             disrezcomp(*userstrings, &compsave, lang, flag);
         } else {
-            disrezcomp(cstrings[counter], &compsave, lang, flag);    
+            disrezcomp(cstrings[counter], &compsave, lang, flag);
         }
-        for (int k = 0; k < rsize; k++) 
-                    compsave[k] = 0;
+        for (int k = 0; k < rsize; k++)
+            compsave[k] = 0;
         sleepcount++;
 
         while (flag != 1) {
             // if (flag == 0) {
-                display_sarr(cstrings, uscount, counter);
-                std::cin.getline(*userstrings, rsize, '\n');
-                if (strcmp(*userstrings, ":q!") == 0) {
-                    system("clear");
-                    menue(user0);
-                }
-                std::cin.clear();
-                flag = scompare(cstrings[counter], *userstrings, lang, &fails, &compsave);
-                for (int k = 0; k < rsize; k++) 
-                    compsave[k] = 0;
-                if (flag == 2) {
-                    disrezcomp(*userstrings, &compsave, lang, flag);
-                } else {
-                    disrezcomp(cstrings[counter], &compsave, lang, flag);    
-                }
-                sleepcount++;
+            display_sarr(cstrings, uscount, counter);
+            std::cin.getline(*userstrings, rsize, '\n');
+            if (strcmp(*userstrings, ":q!") == 0) {
+                system("clear");
+                menue(user0);
+            }
+            std::cin.clear();
+            flag = scompare(
+                    cstrings[counter], *userstrings, lang, &fails, &compsave);
+            for (int k = 0; k < rsize; k++)
+                compsave[k] = 0;
+            if (flag == 2) {
+                disrezcomp(*userstrings, &compsave, lang, flag);
+            } else {
+                disrezcomp(cstrings[counter], &compsave, lang, flag);
+            }
+            sleepcount++;
             // } else {
             if (flag == 1) {
                 j++;

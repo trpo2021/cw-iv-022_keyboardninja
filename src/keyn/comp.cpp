@@ -1,6 +1,11 @@
 #include "../keynlibs/mainlib.hpp"
 
-int scompare(char* cstring, char* userstring, uint8_t lang, int* fails, bool** cstatus)
+int scompare(
+        char* cstring,
+        char* userstring,
+        uint8_t lang,
+        int* fails,
+        bool** cstatus)
 {
     int j = 0;
     uint8_t flag = 1;
@@ -30,8 +35,8 @@ int scompare(char* cstring, char* userstring, uint8_t lang, int* fails, bool** c
                         flag = 2;
                         break;
                     }
-                } 
-            } 
+                }
+            }
         }
         j++;
     }

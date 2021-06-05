@@ -15,7 +15,7 @@ CTEST(scompare_test, true_status)
     char req[6] = "check";
     char ans[6] = "check";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     scompare(str1, str2, ENG, &add, &status);
     const int rez = scompare(req, ans, ENG, &fails, &status);
@@ -35,7 +35,7 @@ CTEST(scompare_test, false_status1)
     char req[6] = "check";
     char ans[7] = "checkk";
 
-    bool *status = (bool*)calloc(7, sizeof(bool));
+    bool* status = (bool*)calloc(7, sizeof(bool));
 
     const int rez = scompare(req, ans, ENG, &fails, &status);
 
@@ -53,7 +53,7 @@ CTEST(scompare_test, false_status2)
     char req[6] = "check";
     char ans[6] = "chec";
 
-    bool *status = (bool*)calloc(7, sizeof(bool));
+    bool* status = (bool*)calloc(7, sizeof(bool));
 
     const int rez = scompare(req, ans, ENG, &fails, &status);
 
@@ -71,7 +71,7 @@ CTEST(scompare_test, false_status3)
     char req[6] = "check";
     char ans[6] = "\n";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     const int rez = scompare(req, ans, ENG, &fails, &status);
 
@@ -89,7 +89,7 @@ CTEST(scompare_test, false_status4)
     char req[6] = "check";
     char ans[6] = "12345";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     const int rez = scompare(req, ans, ENG, &fails, &status);
 
@@ -107,7 +107,7 @@ CTEST(scompare_test, false_status5)
     char req[6] = "check";
     char ans[13] = "привет";
 
-    bool *status = (bool*)calloc(13, sizeof(bool));
+    bool* status = (bool*)calloc(13, sizeof(bool));
 
     const int rez = scompare(req, ans, ENG, &fails, &status);
 
@@ -125,7 +125,7 @@ CTEST(scompare_test, trueru_status1)
     char req[13] = "привет";
     char ans[13] = "привет";
 
-    bool *status = (bool*)calloc(13, sizeof(bool));
+    bool* status = (bool*)calloc(13, sizeof(bool));
 
     int rez = scompare(req, ans, RU, &fails, &status);
 
@@ -143,7 +143,7 @@ CTEST(scompare_test, trueru_status2)
     char req[13] = "привет";
     char ans[13] = "привед";
 
-    bool *status = (bool*)calloc(13, sizeof(bool));
+    bool* status = (bool*)calloc(13, sizeof(bool));
 
     int rez = scompare(req, ans, RU, &fails, &status);
 
@@ -161,7 +161,7 @@ CTEST(scompare_test, caps_status1)
     char req[6] = "HELLO";
     char ans[6] = "HELLO";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     int rez = scompare(req, ans, RU, &fails, &status);
 
@@ -179,7 +179,7 @@ CTEST(scompare_test, caps_status2)
     char req[13] = "ПРИВЕТ";
     char ans[13] = "ПРИВЕТ";
 
-    bool *status = (bool*)calloc(13, sizeof(bool));
+    bool* status = (bool*)calloc(13, sizeof(bool));
 
     int rez = scompare(req, ans, RU, &fails, &status);
 
@@ -197,7 +197,7 @@ CTEST(scompare_test, fails_count1)
     char req[6] = "check";
     char ans[6] = "check";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     scompare(req, ans, ENG, &fails, &status);
 
@@ -215,7 +215,7 @@ CTEST(scompare_test, fails_count2)
     char req[6] = "check";
     char ans[6] = "chect";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     scompare(req, ans, ENG, &fails, &status);
 
@@ -233,7 +233,7 @@ CTEST(scompare_test, fails_count3)
     char req[6] = "check";
     char ans[6] = " ";
 
-    bool *status = (bool*)calloc(6, sizeof(bool));
+    bool* status = (bool*)calloc(6, sizeof(bool));
 
     scompare(req, ans, ENG, &fails, &status);
 
@@ -251,7 +251,7 @@ CTEST(scompare_test, fails_count4)
     char req[6] = "check";
     char ans[7] = "checke";
 
-    bool *status = (bool*)calloc(7, sizeof(bool));
+    bool* status = (bool*)calloc(7, sizeof(bool));
 
     scompare(req, ans, ENG, &fails, &status);
 
@@ -269,7 +269,7 @@ CTEST(scompare_test, fails_count5)
     char req[13] = "привет";
     char ans[13] = "check";
 
-    bool *status = (bool*)calloc(13, sizeof(bool));
+    bool* status = (bool*)calloc(13, sizeof(bool));
 
     scompare(req, ans, RU, &fails, &status);
 
@@ -287,7 +287,7 @@ CTEST(scompare_test, fails_count6)
     char req[6] = "check";
     char ans[13] = "привет";
 
-    bool *status = (bool*)calloc(13, sizeof(bool));
+    bool* status = (bool*)calloc(13, sizeof(bool));
 
     scompare(req, ans, RU, &fails, &status);
 
