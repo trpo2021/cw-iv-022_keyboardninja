@@ -64,7 +64,6 @@ void wmode_eng(std::ifstream* in, uint8_t lang, smode* user0)
         free(arr_words[p]);
     }
     free(arr_words);
-    free(ans_word);
     free(str_num);
     free(temp);
 }
@@ -74,7 +73,7 @@ int rand_num_15(int* arr)
     srand(time(NULL));
 
     for (int i = 0; i < COUNTWORDS; i++) {
-        arr[i] = rand() % 100;
+        arr[i] = rand() % 2000;
 
         for (int p = 0; p < i; p++) {
             if (arr[i] == arr[p]) {

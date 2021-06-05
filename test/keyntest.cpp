@@ -217,6 +217,155 @@ CTEST(scompare_test, fails_count5)
 
     ASSERT_EQUAL(1, fails);
 }
+// TEST #16
+CTEST(slen_test, symcounting_en)
+{
+    CTEST_LOG("SYMCOUNTING_EN");
+
+    char str[6] = "check";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(5, rez);
+}
+// TEST #17
+CTEST(slen_test, symcounting_en2)
+{
+    CTEST_LOG("SYMCOUNTING_EN(Space)");
+
+    char str[12] = "hello world";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(11, rez);
+}
+// TEST #18
+CTEST(slen_test, symcounting_en3)
+{
+    CTEST_LOG("SYMCOUNTING_EN(NewlineCharacter)");
+
+    char str[12] = "\n";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(1, rez);
+}
+// TEST #19
+CTEST(slen_test, symcounting_en4)
+{
+    CTEST_LOG("SYMCOUNTING_EN(TabCharacter)");
+
+    char str[12] = "\t";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(1, rez);
+}
+// TEST #20
+CTEST(slen_test, symcounting_ru1)
+{
+    CTEST_LOG("SYMCOUNTING_EN(TabCharacter)");
+
+    char str[12] = "текст";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(10, rez);
+}
+// TEST #21
+CTEST(slen_test, symcounting_ru2)
+{
+    CTEST_LOG("SYMCOUNTING_EN(RuWithSpaces)");
+
+    char str[33] = "текст с пробелами";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(32, rez);
+}
+// TEST #22
+CTEST(slen_test, symcounting_ru3)
+{
+    CTEST_LOG("SYMCOUNTING_EN(RuWithSpaces&Specials)");
+
+    char str[86] = "текст с пробелами\tи специальными символами";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(79, rez);
+}
+// TEST #23
+CTEST(slen_test, symcounting_ruen)
+{
+    CTEST_LOG("SYMCOUNTING_EN(RuEn)");
+
+    char str[35] = "текст with мороженка";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(34, rez);
+}
+// TEST #24
+CTEST(slen_test, symcounting_ruens)
+{
+    CTEST_LOG("SYMCOUNTING_EN(RuEnSpecials)");
+
+    char str[36] = "текст\nwith \tмороженка";
+
+    int rez = slen(str);
+
+    ASSERT_EQUAL(35, rez);
+}
+// TEST #25
+CTEST(lencount_test, characters_counting_en1)
+{
+    CTEST_LOG("CHARACTERS_COUNTING_EN");
+
+    char* arr[5];
+    arr[0] = (char*)"zero";
+    arr[1] = (char*)"one";
+    arr[2] = (char*)"two";
+    arr[3] = (char*)"three";
+    arr[4] = (char*)"four";
+
+    int rez = lencount(arr, 5);
+
+    ASSERT_EQUAL(19, rez);
+}
+// TEST #26
+CTEST(lencount_test, characters_counting_en2)
+{
+    CTEST_LOG("CHARACTERS_COUNTING_EN(WithSpecs)");
+
+    char* arr[5];
+
+    arr[0] = (char*)"zero \t with specs";
+    arr[1] = (char*)"one uiiii";
+    arr[2] = (char*)"two nice";
+    arr[3] = (char*)"three perfecto";
+    arr[4] = (char*)"four perfavore";
+
+    int rez = lencount(arr, 5);
+
+    ASSERT_EQUAL(62, rez);
+}
+// TEST #27
+CTEST(lencount_test, characters_counting_ru1)
+{
+    CTEST_LOG("CHARACTERS_COUNTING_RU");
+
+    char* arr[5];
+
+    arr[0] = (char*)"ноль";
+    arr[1] = (char*)"один уиии";
+    arr[2] = (char*)"два\n";
+    arr[3] = (char*)"три перфекто";
+    arr[4] = (char*)"четыре перфаворе";
+
+    int rez = lencount(arr, 5);
+
+    ASSERT_EQUAL(86, rez);
+}
 
 CTEST(counting, persent_test_1)
 {

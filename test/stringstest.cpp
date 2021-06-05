@@ -1,4 +1,4 @@
-#include "../keynlibs/mainlib.hpp"
+#include "../src/keynlibs/mainlib.hpp"
 
 int slen(char* str)
 {
