@@ -30,6 +30,40 @@ void display_sarr(char** cstrings, int x, int snumber)
     }
 }
 
+void disrezcomp(char *cstring, bool **cstsatus, uint8_t lang, uint8_t comprez) {
+
+    std::cout << "\x1b[5;33m"
+              << "->"
+              << "\x1b[0m";
+
+    if (comprez == 1) {
+        std::cout << "\x1b[5;32m" << cstring << "\x1b[0m";
+    } 
+    else {
+        if (lang == ENG) {
+            int j = 0;
+            while (cstring[j] != '\0') {
+                if ((*cstsatus)[j] == 0) {
+                    std::cout << "\x1b[5;32m" << cstring[j] << "\x1b[0m";
+                }
+                else if ((*cstsatus)[j] == 1) {
+                    std::cout << "\x1b[5;31m" << cstring[j] << "\x1b[0m";
+                }
+                j++;
+            }
+        }
+        else if (lang == RU) {
+            std::cout << "\x1b[5;31m" << cstring << "\x1b[0m";
+        }
+    }
+
+    std::cout << "\x1b[5;33m"
+              << "<-"
+              << "\x1b[0m" << std::endl;
+
+    sleep(1);
+}
+
 void display_results(
         time_t start, time_t stop, int sleeps, int fails, int sym, smode* user0)
 {
