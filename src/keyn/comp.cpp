@@ -8,11 +8,9 @@ int scompare(char* cstring, char* userstring, uint8_t lang, int* fails, bool** c
     while (cstring[j] != '\0') {
         if (cstring[j] != userstring[j]) {
             if (lang == ENG) {
-                // std::cout << "\x1b[5;31m" << cstring[j] << "\x1b[0m";
                 (*cstatus)[j] = 1;
                 (*fails)++;
             } else if (lang == RU) {
-                // std::cout << "\x1b[5;31m" << cstring << "\x1b[0m";
                 (*cstatus)[j] = 1;
                 (*fails)++;
             }
@@ -21,11 +19,9 @@ int scompare(char* cstring, char* userstring, uint8_t lang, int* fails, bool** c
             if (lang == ENG) {
                 if (cstring[j + 1] == '\0') {
                     if (userstring[j + 1] == '\0') {
-                        // std::cout << "\x1b[5;32m" << cstring[j] << "\x1b[0m";
                         break;
                     } else {
-                        // std::cout << "\x1b[5;31m" << userstring[j + 1]
-                        //           << "\x1b[0m";
+                        j += 1;
                         while (userstring[j] != '\0') {
                             (*fails)++;
                             (*cstatus)[j] = 1;
@@ -35,14 +31,7 @@ int scompare(char* cstring, char* userstring, uint8_t lang, int* fails, bool** c
                         break;
                     }
                 } 
-                // else
-                    // std::cout << "\x1b[5;32m" << cstring[j] << "\x1b[0m";
             } 
-            // else if (
-            //         lang == RU && cstring[j + 1] == '\0'
-            //         && userstring[j + 1] == '\0') {
-            //     std::cout << "\x1b[5;32m" << cstring << "\x1b[0m";
-            // }
         }
         j++;
     }
