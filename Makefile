@@ -45,7 +45,7 @@ $(OBJPATH) : $(OBJD)/$(NAMEDIR)/%.o : $(SRCD)/$(NAMEDIR)/%.cpp
 
 test : $(TSTPATH)
 
-$(TSTPATH) : $(OBJTSTPATH)
+$(TSTPATH) : $(OBJTSTPATH) $(MLPATH)
 	$(CXX) $(CXXFLAGS_T) $^ -o $@
 
 $(OBJTSTPATH) : $(OBJD)/$(TSTD)/%.o : $(TSTD)/%.cpp
