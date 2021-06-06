@@ -16,19 +16,19 @@ int scompare(
             (*fails)++;
             flag = 0;
             if (cstring[j + 1] == '\0') {
-                    if (userstring[j + 1] == '\0') {
-                        break;
-                    } else {
-                        j += 1;
-                        while (userstring[j] != '\0') {
-                            (*fails)++;
-                            (*cstatus)[j] = 1;
-                            j++;
-                        }
-                        flag = 2;
-                        break;
+                if (userstring[j + 1] == '\0') {
+                    break;
+                } else {
+                    j += 1;
+                    while (userstring[j] != '\0') {
+                        (*fails)++;
+                        (*cstatus)[j] = 1;
+                        j++;
                     }
+                    flag = 2;
+                    break;
                 }
+            }
         } else {
             if (cstring[j + 1] == '\0') {
                 if (userstring[j + 1] == '\0') {
