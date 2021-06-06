@@ -55,7 +55,12 @@ int read_usermode(char** cstrings);
 int cmode(uint8_t lang, smode* user0);
 int read_code(char** cstrings, int num, const char* md);
 
-int scompare(char* cstring, char* userstring, uint8_t lang, int* fails);
+int scompare(
+        char* cstring,
+        char* userstring,
+        uint8_t lang,
+        int* fails,
+        bool** cstatus);
 int readusansw_uscode(
         char** cstrings,
         char** userstrings,
@@ -72,3 +77,4 @@ int rangs(double score);
 
 int slen(char* str);
 int lencount(char** str, int count);
+void disrezcomp(char* cstring, bool** cstsatus, uint8_t lang, uint8_t comprez);
