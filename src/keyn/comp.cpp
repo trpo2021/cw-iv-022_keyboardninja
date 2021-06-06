@@ -12,17 +12,10 @@ int scompare(
 
     while (cstring[j] != '\0') {
         if (cstring[j] != userstring[j]) {
-            if (lang == ENG) {
-                (*cstatus)[j] = 1;
-                (*fails)++;
-            } else if (lang == RU) {
-                (*cstatus)[j] = 1;
-                (*fails)++;
-            }
+            (*cstatus)[j] = 1;
+            (*fails)++;
             flag = 0;
-        } else {
-            if (lang == ENG) {
-                if (cstring[j + 1] == '\0') {
+            if (cstring[j + 1] == '\0') {
                     if (userstring[j + 1] == '\0') {
                         break;
                     } else {
@@ -35,6 +28,20 @@ int scompare(
                         flag = 2;
                         break;
                     }
+                }
+        } else {
+            if (cstring[j + 1] == '\0') {
+                if (userstring[j + 1] == '\0') {
+                    break;
+                } else {
+                    j += 1;
+                    while (userstring[j] != '\0') {
+                        (*fails)++;
+                        (*cstatus)[j] = 1;
+                        j++;
+                    }
+                    flag = 2;
+                    break;
                 }
             }
         }

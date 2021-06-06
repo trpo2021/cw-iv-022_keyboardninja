@@ -58,7 +58,6 @@ int readusansw_uscode(
         sleepcount++;
 
         while (flag != 1) {
-            // if (flag == 0) {
             display_sarr(cstrings, uscount, counter);
             std::cin.getline(*userstrings, rsize, '\n');
             if (strcmp(*userstrings, ":q!") == 0) {
@@ -68,15 +67,14 @@ int readusansw_uscode(
             std::cin.clear();
             flag = scompare(
                     cstrings[counter], *userstrings, lang, &fails, &compsave);
-            for (int k = 0; k < rsize; k++)
-                compsave[k] = 0;
             if (flag == 2) {
                 disrezcomp(*userstrings, &compsave, lang, flag);
             } else {
                 disrezcomp(cstrings[counter], &compsave, lang, flag);
             }
+            for (int k = 0; k < rsize; k++)
+                compsave[k] = 0;
             sleepcount++;
-            // } else {
             if (flag == 1) {
                 j++;
                 flag = true;
