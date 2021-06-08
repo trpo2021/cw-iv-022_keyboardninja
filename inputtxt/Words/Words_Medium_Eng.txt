@@ -78,7 +78,6 @@ afternoon
 afterwards
 against
 agency
-agency′s
 agreed
 aircraft
 airless
@@ -155,7 +154,6 @@ appears
 appliances
 application
 applications
-application’
 applied
 applying
 appreciably
@@ -163,7 +161,6 @@ approach
 appropriate
 approximately
 arcade
-aren’t
 argument
 ariane
 arises
@@ -271,7 +268,6 @@ beneath
 benefits
 berners
 better
-better”
 between
 beyond
 biased
@@ -310,7 +306,6 @@ bounces
 bouncing
 boundary
 brackets
-brain′s
 braking
 branch
 branches
@@ -411,13 +406,11 @@ caught
 caused
 causes
 cavanagh
-cavanagh′s
 ceiling
 ceilings
 cellular
 center
 centers
-center′s
 central
 centre
 centrino
@@ -574,8 +567,6 @@ compute
 computed
 computer
 computers
-computer’s
-computer′s
 computing
 concentrate
 concept
@@ -674,8 +665,6 @@ corporation
 correct
 corrupted
 costly
-couldn’t
-couldn′t
 coulomb
 council
 countries
@@ -722,7 +711,6 @@ customer
 customers
 cycles
 cylindrical
-cложное
 damage
 damaged
 danger
@@ -837,8 +825,6 @@ diameter
 diamond
 dictionaries
 dictionary
-didnt′
-didn′t
 difference
 different
 difficult
@@ -852,7 +838,6 @@ dimensions
 dimming
 diodes
 dioxide
-dioxide′s
 dipole
 direct
 directed
@@ -900,10 +885,7 @@ divided
 division
 doctorate
 documentary
-doesn’t
-doesn′t
 dollars
-doll′s
 domestic
 donate
 donated
@@ -931,7 +913,6 @@ driving
 durable
 during
 dynamically
-eBay′s
 earbuds
 earlier
 earliest
@@ -940,7 +921,6 @@ earpiece
 earpieces
 earrings
 earthquakes
-earth′s
 easier
 easily
 eating
@@ -961,8 +941,6 @@ effective
 effectively
 effects
 efficiencies
-efficiency
-efficiency”
 efficient
 efficiently
 effort
@@ -986,7 +964,6 @@ electromotive
 electron
 electronic
 electronics
-electronics”
 electrons
 elegant
 element
@@ -1018,7 +995,6 @@ engine
 engineer
 engineering
 engineers
-engineer’s
 engines
 english
 englishwoman
@@ -1059,7 +1035,6 @@ established
 estimate
 europe
 european
-europe′s
 evacuated
 evaporating
 evening
@@ -1114,7 +1089,6 @@ explain
 explained
 explaining
 explanation
-exploration
 explore
 explored
 explores
@@ -1150,7 +1124,6 @@ farther
 faster
 fastest
 father
-father′s
 favourite
 feature
 features
@@ -1238,8 +1211,6 @@ friction
 friend
 friendly
 friends
-friends′
-friend′s
 fruitful
 fulfill
 function
@@ -1249,8 +1220,6 @@ further
 furthermore
 future
 futuristic
-gaAlAs
-gaInAsP
 gadgets
 gained
 galaxies
@@ -1322,7 +1291,6 @@ guides
 gyorgyi
 habits
 hackers
-hadn′t
 halved
 handed
 handful
@@ -1340,8 +1308,6 @@ hardly
 hardware
 harmless
 harris
-hasn’t
-hasn′t
 having
 hazard
 headlight
@@ -1414,7 +1380,6 @@ implied
 importance
 important
 impossible
-impossible”
 impractical
 impressive
 improve
@@ -1472,7 +1437,6 @@ inside
 insist
 insisted
 insists
-insist…
 inspired
 install
 installed
@@ -1516,7 +1480,6 @@ interlaces
 internal
 international
 internet
-internet’s
 interplanetary
 interpret
 interpreted
@@ -1550,10 +1513,8 @@ irrigate
 isolated
 italian
 itself
-i…greatly
 jacket
 japanese
-japan′s
 jogging
 johnson
 joined
@@ -1562,7 +1523,6 @@ journals
 journey
 junctions
 jupiter
-jupiter′s
 justification
 kailath
 keeping
@@ -1581,7 +1541,6 @@ labeled
 laboratories
 laboratory
 lacking
-lamp′s
 landing
 language
 languages
@@ -1627,7 +1586,6 @@ lighthouses
 lighting
 lightning
 lights
-light”
 likely
 likened
 limitations
@@ -1737,7 +1695,6 @@ members
 memories
 memory
 mendeleev
-mendeleyev’s
 mention
 mentioned
 mervin
@@ -1762,7 +1719,6 @@ microprocessors
 microscope
 microscopes
 microsoft
-microsoft′s
 microwave
 microwaves
 middle
@@ -1770,7 +1726,6 @@ milestone
 military
 million
 millions
-million…
 miniature
 miniaturize
 miniaturized
@@ -1835,7 +1790,6 @@ multiple
 multipurpose
 mumford
 musical
-mustn′t
 mysterious
 mystery
 nanotechnology
@@ -1855,7 +1809,6 @@ nearly
 necessary
 necessity
 needed
-needn′t
 negative
 negatively
 negligible
@@ -1880,8 +1833,6 @@ newsletter
 newspaper
 newspapers
 newton
-newton‛s
-newton′s
 nextel
 niches
 nineteenth
@@ -1896,7 +1847,6 @@ notice
 noticeably
 noticed
 noting
-not…many
 novelist
 novosibirsk
 nowadays
@@ -1944,7 +1894,6 @@ operational
 operations
 operator
 operators
-operators′
 opinion
 opinions
 opportunity
@@ -1973,7 +1922,6 @@ oscilloscope
 oscilloscopes
 others
 otherwise
-oughtn′t
 ousted
 outdoor
 outfitted
@@ -1995,8 +1943,6 @@ owners
 oxford
 oxidation
 oxygen
-o′Brien
-o′clock
 package
 packages
 packing
@@ -2014,7 +1960,6 @@ participle
 participles
 particle
 particles
-particle”
 particular
 passed
 passenger
@@ -2037,7 +1982,6 @@ peculiarities
 pennsylvania
 pentium
 people
-people′s
 perceived
 percent
 perfect
@@ -2057,8 +2001,7 @@ permitted
 persist
 person
 personal
-person………
-person′s
+
 perspective
 petrol
 phased
@@ -2109,7 +2052,6 @@ planets
 planned
 planning
 plants
-plant′s
 plastic
 plates
 platform
@@ -2236,7 +2178,6 @@ profession
 professional
 professions
 professor
-professor′s
 profiles
 profit
 profound
@@ -2267,7 +2208,6 @@ properties
 property
 proportional
 proposed
-propose…
 prospects
 protect
 protected
@@ -2496,7 +2436,6 @@ robots
 rocked
 rocket
 rockets
-roku’s
 rotary
 rotors
 rotting
@@ -2507,7 +2446,6 @@ rugged
 running
 russia
 russian
-russia′s
 safely
 safety
 samples
@@ -2549,12 +2487,10 @@ seabed
 search
 second
 seconds
-seconds”
 secretly
 secrets
 sections
 sector
-sector′s
 secure
 security
 seemed
@@ -2606,7 +2542,6 @@ shortage
 shortens
 shorter
 should
-shouldn′t
 showed
 showing
 shutter
@@ -2659,18 +2594,15 @@ someone
 something
 sometimes
 somewhere
-song′s
 sophisticated
 sophisticating
 soundBridge
 sounds
 soundtrack
-sound”
 source
 sources
 spacecraft
 spaced
-space”
 sparks
 speaker
 speakers
@@ -2775,7 +2707,6 @@ succeeded
 success
 successful
 successfully
-such…as
 suffered
 sufficient
 suffixes
@@ -2841,7 +2772,6 @@ targets
 taught
 teacher
 teachers
-teacher′s
 technical
 technique
 techniques
@@ -2872,7 +2802,6 @@ tested
 testing
 texting
 thanks
-that′s
 theatre
 themselves
 theologian
@@ -2887,9 +2816,6 @@ thermistor
 thermistors
 thermodynamic
 thermometer
-the…the
-the…………
-the……………
 thickness
 things
 thinking
@@ -2910,7 +2836,6 @@ thunderstorms
 timing
 titanic
 toasters
-today′s
 together
 tomorrow
 tonight
@@ -2940,7 +2865,6 @@ transient
 transistor
 transistorized
 transistors
-transistor»
 transition
 translate
 translated
@@ -3027,8 +2951,6 @@ uranium
 uranus
 urgent
 useful
-users′
-user′s
 usually
 utilized
 vacancy
@@ -3070,7 +2992,6 @@ village
 virtually
 visible
 vision
-vision”
 visiting
 visitors
 visual
@@ -3095,7 +3016,6 @@ warning
 warplanes
 washing
 washington
-wasn’t
 wastes
 watched
 watches
@@ -3113,7 +3033,6 @@ weekend
 weight
 welcomed
 welcoming
-weren’t
 whatever
 whenever
 whereas
@@ -3140,12 +3059,10 @@ workers
 working
 workplace
 world
-world′s
 worried
 worries
 writing
 written
-yahoo′s
 years
 yesterday
 younger

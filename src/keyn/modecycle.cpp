@@ -63,6 +63,7 @@ void modecycle(smode* user0)
                 std::cin.clear();
                 if (*answ == 'N' || *answ == 'n') {
                     flag = false;
+                    in.close();
                     break;
                 } else if (*answ == 'Y' || *answ == 'y') {
                     break;
@@ -108,6 +109,7 @@ void modecycle(smode* user0)
                 std::cin.clear();
                 if (*answ == 'N' || *answ == 'n') {
                     flag = false;
+                    in.close();
                     break;
                 } else if (*answ == 'Y' || *answ == 'y') {
                     break;
