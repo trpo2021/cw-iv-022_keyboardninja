@@ -1,38 +1,39 @@
 ###
-    while (1) {
-        j = 0;
-        counter++;
-        fread(temp, 1, 1, ocd);
+while (1) {
+    j = 0;
+    counter++;
+    fread(temp, 1, 1, ocd);
 
-        while (*temp >= 128) {
-            (*value)[j] = *temp;
-            fread(temp, 1, 1, ocd);
-            j++;
-            counter++;
-        }
-
-        if (feof(ocd)) {
-            printf("counter : %d\n", counter);
-            break;
-        }
-
+    while (*temp >= 128) {
         (*value)[j] = *temp;
-        const uint8_t **val_cp = (const uint8_t **) value;
-
-        uint32_t uncode = decode_varint(val_cp);
-        fprintf(odd, "%d\n", uncode);
+        fread(temp, 1, 1, ocd);
+        j++;
+        counter++;
     }
+
+    if (feof(ocd)) {
+        printf("counter : %d\n", counter);
+        break;
+    }
+
+    (*value)[j] = *temp;
+    const uint8_t** val_cp = (const uint8_t**)value;
+
+    uint32_t uncode = decode_varint(val_cp);
+    fprintf(odd, "%d\n", uncode);
+}
 ###
-heap *heap_create(int maxsize) {
-    heap *h;
-    h = (heap *)malloc(sizeof(*h));
+heap* heap_create(int maxsize)
+{
+    heap* h;
+    h = (heap*)malloc(sizeof(*h));
 
     if (h != NULL) {
         h->maxsize = maxsize;
         h->nnodes = 0;
-        h->nodes = (heapnode*)malloc(sizeof(*h->nodes)*(maxsize + 1));
-        h->pos = (int *)calloc((maxsize + 1), sizeof(int));
-    
+        h->nodes = (heapnode*)malloc(sizeof(*h->nodes) * (maxsize + 1));
+        h->pos = (int*)calloc((maxsize + 1), sizeof(int));
+
         if (h->nodes == NULL) {
             free(h);
             return NULL;
@@ -41,23 +42,22 @@ heap *heap_create(int maxsize) {
     return h;
 }
 ###
-int int_vector_reserve(IntVector *v, size_t new_capacity) {
+int int_vector_reserve(IntVector* v, size_t new_capacity)
+{
+    int* check = NULL;
 
-  int *check = NULL;
+    if (v != NULL && new_capacity > v->capacity && new_capacity > 0) {
+        check = (int*)realloc(v->arr, new_capacity * sizeof(int));
 
-  if (v != NULL && new_capacity > v->capacity && new_capacity > 0) {
-    
-    check = (int *)realloc(v->arr, new_capacity * sizeof(int));
+        if (check != NULL)
+            v->arr = check;
 
-    if (check != NULL)
-      v->arr = check;
-    
-    if (v->arr == NULL)
-      return -1;
-    v->capacity = new_capacity;
-    return 0;
-  } else
-    return -1;
+        if (v->arr == NULL)
+            return -1;
+        v->capacity = new_capacity;
+        return 0;
+    } else
+        return -1;
 }
 ###
 void bstree_add(struct bstree* tree, char* key, int value)
