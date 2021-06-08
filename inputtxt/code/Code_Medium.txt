@@ -1,0 +1,106 @@
+###
+#include <stdio.h>
+#define SQR(x) (x) * (x)
+int main()
+{
+    int y = 5;
+    int z = SQR(y + 1);
+    printf("z = %d\n", z);
+}
+###
+int symcnt(char* arr, char sym)
+{
+    int i = 0, counter = 0;
+
+    while (arr[i] != '\0') {
+        if (arr[i] == sym)
+            counter++;
+        i++;
+    }
+
+    return counter + 1;
+}
+###
+int degree(int n, int deg)
+{
+    if (deg == 1)
+        return n;
+    if (deg == 0)
+        return 1;
+
+    return n * degree(n, deg - 1);
+}
+###
+struct bstree {
+    char* key;
+    int value;
+
+    struct bstree* left;
+    struct bstree* right;
+};
+###
+int slen(char* str)
+{
+    int len;
+
+    for (int i = 0; str[i] != '\0'; i++)
+        len = i;
+
+    return len;
+}
+###
+double wtime()
+{
+    struct timeval t;
+    gettimeofday(&t, NULL);
+    return (double)t.tv_sec + (double)t.tv_usec * 1E-6;
+}
+###
+int schr(char* str, char delim)
+{
+    int i, indx = -1;
+
+    for (i = 0; (str[i]) != '\0' && (str[i] != delim); i++)
+        ;
+
+    if (str[i] == delim)
+        indx = i;
+
+    return indx;
+}
+###
+struct bstree* bstree_min(struct bstree* tree)
+{
+    if (tree == NULL)
+        return NULL;
+    while (tree->left != NULL)
+        tree = tree->left;
+    return tree;
+}
+###
+struct bstree* bstree_max(struct bstree* tree)
+{
+    if (tree == NULL)
+        return NULL;
+    while (tree->right != NULL)
+        tree = tree->right;
+    return tree;
+}
+###
+int foundmax(int* a, int n)
+{
+    int i, max = a[0];
+    for (i = 1; i < n; i++) {
+        if (max < a[i])
+            max = a[i];
+    }
+    return max;
+}
+###
+void swap(int* a, int* b)
+{
+    *a = *a + *b;
+    *b = *a - *b;
+    *a = *a - *b;
+}
+###
